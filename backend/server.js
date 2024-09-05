@@ -1,9 +1,10 @@
 import express from "express";
 import authRouter from "./routes/auth.routes.js";
 import dotenv from "dotenv";
-const PORT = 5000;
+
 import connectDb from "./config/db.js";
 const app = express();
+const PORT = 5000;
 
 dotenv.config();
 app.use(express.json());
