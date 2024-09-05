@@ -1,0 +1,4 @@
+npm install firebase -> use this command to install all the depencencies
+
+
+Add firebase code to the file

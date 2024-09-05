@@ -1,5 +1,15 @@
+import OAuthSignup from "./OAuthSignup.jsx";
+
+import OAuthLogin from "./OAuthLogin.jsx";
 function App() {
-  return <h1>App js</h1>;
+  return (
+    <>
+      <div>This is App.js</div>
+
+      <OAuthSignup />
+      <OAuthLogin />
+    </>
+  );
 }
 
 export default App;
