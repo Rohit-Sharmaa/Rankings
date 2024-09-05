@@ -3,6 +3,8 @@ import cors from "cors";
 import authRouter from "./routes/auth.routes.js";
 import dotenv from "dotenv";
 import connectDb from "./config/db.js";
+import codingProfiles from "./routes/codingProfiles.route.js";
+
 const app = express();
 const PORT = 5000;
 
@@ -17,6 +19,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/auth", authRouter);
+app.use("/api/profiles", codingProfiles);
 
 app.listen(5000, () => {
   console.log(`Server is running on post ${PORT}`);

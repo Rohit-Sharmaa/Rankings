@@ -5,7 +5,6 @@ function App() {
   return (
     <>
       <div>This is App.js</div>
-
       <OAuthSignup />
       <OAuthLogin />
     </>
