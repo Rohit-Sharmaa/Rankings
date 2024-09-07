@@ -106,6 +106,23 @@ const UserSchema = new mongoose.Schema(
           default: 0,
         },
 
+        maxRating: {
+          type: Number,
+          default: 0,
+        },
+        globalRank: {
+          type: Number,
+          default: 0,
+        },
+        countryRank: {
+          type: Number,
+          default: 0,
+        },
+        stars: {
+          type: Number,
+          default: 0,
+        },
+
         questionSolved: {
           type: Number,
           default: 0,

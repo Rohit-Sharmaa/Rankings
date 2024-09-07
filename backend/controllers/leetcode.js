@@ -21,7 +21,10 @@ export const leetcode = async (req, res) => {
 
     const { matchedUser, userContestRanking } = data?.data || {};
 
-    if (matchedUser === null && userContestRanking == null) {
+    if (
+      !leetcodeUsername ||
+      (matchedUser === null && userContestRanking == null)
+    ) {
       return res
         .status(400)
         .json({ message: "Please Provide a Valid Leetcode Username" });
