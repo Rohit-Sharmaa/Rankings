@@ -69,13 +69,27 @@ const UserSchema = new mongoose.Schema(
           type: String,
           default: "",
         },
-
-        rating: {
+        instituteRank: {
+          type: String,
+          default: 0,
+        },
+        questionSolved: {
           type: Number,
           default: 0,
         },
-
-        questionSolved: {
+        codingScore: {
+          type: Number,
+          default: 0,
+        },
+        EasySolved: {
+          type: Number,
+          default: 0,
+        },
+        MediumSolved: {
+          type: Number,
+          default: 0,
+        },
+        HardSolved: {
           type: Number,
           default: 0,
         },

@@ -27,10 +27,9 @@ export const leetcode = async (req, res) => {
         .json({ message: "Please Provide a Valid Leetcode Username" });
     }
 
-    // Destructure and set default values if undefined
     const username = matchedUser?.username || "N/A";
     const profilePicture = matchedUser?.profile?.userAvatar || "";
-    const rating = Math.ceil(userContestRanking?.rating || 0); // Apply Math.ceil to rating
+    const rating = Math.ceil(userContestRanking?.rating || 0);
     const globalRanking = userContestRanking?.globalRanking || 0;
     const attendedContest = userContestRanking?.attendedContestsCount || 0;
     const streak = matchedUser?.userCalendar?.streak || 0;
