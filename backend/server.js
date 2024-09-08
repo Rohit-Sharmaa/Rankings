@@ -10,7 +10,6 @@ const app = express();
 const PORT = 5000;
 
 app.use(cors());
-
 dotenv.config();
 app.use(express.json());
 connectDb();
@@ -23,6 +22,6 @@ app.use("/api/auth", authRouter);
 app.use("/api/profiles", codingProfiles);
 app.use("/api/contest", contestRoute);
 
-app.listen(5000, () => {
+app.listen(PORT, () => {
   console.log(`Server is running on post ${PORT}`);
 });

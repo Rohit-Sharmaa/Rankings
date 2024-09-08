@@ -1,9 +1,10 @@
+import User from "../models/user.model.js";
 import OTPModel from "../models/user.otp.mode.js";
 import generateOTP from "../utils/generateOtp.js";
 import { sendEmail } from "../utils/sendEmail.utils.js";
-import User from "./../models/user.model.js";
 import bcrypt from "bcrypt";
-export async function signup(req, res) {
+
+export const forgetPassword = async (req, res) => {
   try {
     const { email } = req.body;
     if (!email) {
@@ -11,12 +12,11 @@ export async function signup(req, res) {
     }
     const existingUser = await User.findOne({ email });
 
-    if (existingUser) {
-      return res.status(400).json({ message: "User already exist" });
+    if (!existingUser) {
+      return res.status(400).json({ message: "User  does't  exist" });
     }
 
     const otp = generateOTP();
-
     const result = await sendEmail(email, otp);
     if (!result) {
       return res.status(400).json({ message: "Please Provide a valid email" });
@@ -37,17 +37,18 @@ export async function signup(req, res) {
     });
   } catch (error) {
     console.log(error.message);
-
     return res.json({ message: "Something went wrong" });
   }
-}
+};
 
-export async function verifyOtp(req, res) {
+export const resetPassword = async (req, res) => {
   try {
     const { email, otp, password } = req.body;
 
     if (!email || !otp || !password) {
-      return res.send({ message: "Please provide valid credentials" });
+      return res
+        .status(400)
+        .send({ message: "Please provide valid credentials" });
     }
 
     const otpEntry = await OTPModel.findOne({ email });
@@ -61,24 +62,21 @@ export async function verifyOtp(req, res) {
     }
 
     const isOtpValid = await bcrypt.compare("" + otp, otpEntry.otp);
-
     if (!isOtpValid) {
       return res.status(400).json({ message: "Invalid OTP" });
     }
 
-    //check that user already exist or not
-    const isUserExist = await User.findOne({ email });
-
-    if (isUserExist) {
-      return res.status(400).json({ message: "User already exist" });
-    }
-
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = new User({ email, password: hashedPassword });
-    await user.save();
-    return res.json({ message: "User created successfully" });
+
+    await User.findOneAndUpdate(
+      { email },
+      { password: hashedPassword },
+      { new: true }
+    );
+
+    return res.json({ message: "Password updated successfully!" });
   } catch (error) {
     console.log(error.message);
     return res.status(500).json({ message: "Something went wrong" });
   }
-}
+};

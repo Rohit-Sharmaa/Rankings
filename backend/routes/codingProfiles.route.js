@@ -8,10 +8,11 @@ import { getUserProfile } from "../controllers/getUserProfile.js";
 const router = express.Router();
 
 //i have to make this route protected
-router.get("/leetcode", verifyToken, leetcode);
-router.get("/geeksforgeeks", verifyToken, geeksforgeeks);
-router.get("/codechef", verifyToken, codechef);
-router.get("/codeforces", verifyToken, codeforces);
+router.post("/leetcode", verifyToken, leetcode);
+router.post("/geeksforgeeks", verifyToken, geeksforgeeks);
+router.post("/codechef", verifyToken, codechef);
+router.post("/codeforces", verifyToken, codeforces);
+
 router.get("/getUserProfile", verifyToken, getUserProfile);
 
 export default router;
