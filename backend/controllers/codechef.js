@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import fetch from "node-fetch"; // Ensure node-fetch is installed
+import fetch from "node-fetch";
 import User from "../models/user.model.js";
 
 dotenv.config();

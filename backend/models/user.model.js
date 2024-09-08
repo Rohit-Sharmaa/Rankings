@@ -139,6 +139,18 @@ const UserSchema = new mongoose.Schema(
           type: Number,
           default: 0,
         },
+        rank: {
+          type: String,
+          default: "",
+        },
+        maxRank: {
+          type: String,
+          default: "",
+        },
+        maxRating: {
+          type: Number,
+          default: 0,
+        },
 
         questionSolved: {
           type: Number,
