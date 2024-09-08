@@ -6,6 +6,7 @@ dotenv.config();
 
 export const leetcode = async (req, res) => {
   try {
+    console.log("leetcode file-->" + req.body);
     const { leetcodeUsername } = req.body;
     const userId = req.user.userId;
 
@@ -30,8 +31,8 @@ export const leetcode = async (req, res) => {
         .json({ message: "Please Provide a Valid Leetcode Username" });
     }
 
-    const username = matchedUser?.username || "N/A";
-    const profilePicture = matchedUser?.profile?.userAvatar || "";
+    const username = matchedUser?.username || "";
+
     const rating = Math.ceil(userContestRanking?.rating || 0);
     const globalRanking = userContestRanking?.globalRanking || 0;
     const attendedContest = userContestRanking?.attendedContestsCount || 0;
@@ -60,7 +61,7 @@ export const leetcode = async (req, res) => {
       {
         $set: {
           "CodingProfiles.leetcode.username": username,
-          "CodingProfiles.leetcode.profilePicture": profilePicture,
+
           "CodingProfiles.leetcode.rating": rating,
           "CodingProfiles.leetcode.globalRanking": globalRanking,
           "CodingProfiles.leetcode.attendedContest": attendedContest,

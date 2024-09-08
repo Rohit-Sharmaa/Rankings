@@ -27,8 +27,6 @@ export const codeforces = async (req, res) => {
     const baseUrl2 = process.env.CODEFORCES_API_BASE_URL_FOR_USER_ACS;
     const apiUrl2 = `${baseUrl2}${codeforcesUsername}`;
 
-    console.log(apiUrl2);
-
     let respoonse2 = await fetch(apiUrl2);
     let statusData = await respoonse2.json();
 
