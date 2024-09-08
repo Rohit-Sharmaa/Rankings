@@ -15,10 +15,8 @@ export const leetcode = async (req, res) => {
     console.log(`Fetching from: ${apiUrl}`);
 
     const response = await fetch(apiUrl);
-    console.log(`Response status: ${response.status}`);
 
     const data = await response.json();
-    console.log("API data:", data);
 
     const { matchedUser, userContestRanking } = data?.data || {};
 
