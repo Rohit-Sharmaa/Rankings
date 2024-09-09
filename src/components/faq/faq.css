@@ -1,0 +1,164 @@
+/* FAQ Section Styling */
+.faq-section {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff; /* White background */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    background-color: var(--color-light);
+}
+
+/* FAQ Header Styling */
+.faq-section h2 {
+    font-size: 32px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* FAQ Container Styling */
+.faq-container {
+    background-color: #f9f9f9; /* Slightly gray background for the container */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+}
+
+/* FAQ Item Styling */
+.faq-item {
+    border-bottom: 1px solid #cccccc;
+    padding: 15px 0;
+    cursor: pointer;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.faq-answer {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #555;
+    display: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.faq-answer.visible {
+    display: block;
+}
+
+.arrow {
+    font-size: 18px;
+    color: #999;
+}
+
+/* Symbols for plus and minus */
+/* Symbols for plus and minus */
+.arrow.plus::before {
+    content: '+';
+    font-size: 25px;
+    color: black; /* Set the color to black */
+    font-weight: bold; /* Set the font weight to bold */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background color and text color */
+    padding: 5px; /* Add padding for better hover effect */
+    border-radius: 3px; /* Optional: rounded corners */
+}
+
+/* Hover effect for the plus icon */
+.arrow.plus:hover::before {
+    background-color: #333; /* Dark black background */
+    color: #fff; /* White text color */
+}
+
+
+/* Symbols for plus and minus */
+.arrow.minus::before {
+    content: '−';
+    font-size: 25px;
+    color: #999; /* Gray color for minus symbol */
+    font-weight: bold; /* Set the font weight to bold */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background color and text color */
+    padding: 5px; /* Add padding for better hover effect */
+    border-radius: 3px; 
+}
+
+.arrow.minus:hover::before {
+    background-color: #333; /* Dark black background */
+    color: #fff; /* White text color */
+}
+
+/* FAQ Footer Styling */
+.faq-footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+}
+
+.arrow.minus:hover::before {
+    background-color: #333; /* Dark black background */
+    color: #fff; /* White text color */
+}
+
+.faq-footer a {
+    color: green;
+    text-decoration: none;
+}
+
+.faq-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .faq-section {
+        padding: 10px;
+        margin-bottom: 70px; /* Increased bottom margin for medium screens */
+    }
+
+    .faq-question {
+        font-size: 16px;
+    }
+
+    .faq-answer {
+        font-size: 14px;
+    }
+
+    .faq-container {
+        padding: 10px;
+    }
+
+    .faq-footer {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .faq-section {
+        padding: 5px;
+        margin-bottom: 80px; /* Further increase bottom margin for small screens */
+    }
+
+    .faq-question {
+        font-size: 14px;
+    }
+
+    .faq-answer {
+        font-size: 12px;
+    }
+
+    .faq-footer {
+        font-size: 12px;
+    }
+}

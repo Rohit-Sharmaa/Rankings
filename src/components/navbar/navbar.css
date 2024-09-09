@@ -1,0 +1,75 @@
+.navbar {
+  width: 100vw;
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-light);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  padding: 0 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav_container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.nav_logo_container {
+  display: flex;
+  align-items: center;
+}
+.nav_logo {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav_menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 2.5rem;
+  flex-grow: 1;
+  justify-content: center;
+  font-weight: 700px;
+}
+
+.nav_menu a {
+  color: var(--color-black);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: large;
+}
+.login_button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  font-weight: 700;
+  margin-right: 2rem;
+  font-size: 1.1rem;
+  transition: var(--transition);
+}
+
+@media (hover: hover) {
+  .btn.white:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    /* transform: translateX(-0.5rem); */
+  }
+}
+
+.coursel {
+  margin-top: 4rem;
+}
