@@ -1,0 +1,39 @@
+.card {
+  background: var(--color-light);
+  padding: 1.5rem;
+  border: 2px solid transparent;
+  border-radius: var(--border-radius-1);
+  transition: var(--transition);
+}
+@media (hover: hover) {
+  .card:hover {
+    background: transparent;
+    border-color: var(--color-light);
+    transform: translateY(-1rem);
+  }
+}
+.card.light {
+  background: var(--color-light);
+}
+@media (hover: hover) {
+  .card.light:hover {
+    background: transparent;
+    border-radius: var(--color-light);
+  }
+}
+
+/* MEDIA QUERIE FOR PHONES  */
+
+@media screen and (max-width: 600px) {
+  .card {
+    padding: 1.2rem;
+  }
+}
+
+.dark__theme .card {
+  background-color: var(--card-color) !important;
+}
+
+.dark__theme .card h4 {
+  color: var(--text-color);
+}
