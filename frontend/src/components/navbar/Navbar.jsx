@@ -1,8 +1,6 @@
 import "./navbar.css";
 import logo from "../../assests/7.jpg";
 import data from "./data.js";
-// import { MdOutlineLightMode } from "react-icons/md";
-
 function Navbar() {
   return (
     <nav className="navbar">

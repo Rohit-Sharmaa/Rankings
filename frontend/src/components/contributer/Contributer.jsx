@@ -1,5 +1,5 @@
 import React from "react";
-import { FaTwitter, FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 import data from "./data";
 import "./contributer.css";
 
