@@ -1,6 +1,7 @@
 import "./navbar.css";
 import logo from "../../assests/7.jpg";
 import data from "./data.js";
+import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <nav className="navbar">
@@ -14,7 +15,9 @@ function Navbar() {
         <ul className="nav_menu">
           {data.map((item) => (
             <li key={item.id}>
-              <a href="item.link">{item.title}</a>
+              <Link to={item.link} className="nav_list_item">
+                {item.title}
+              </Link>
             </li>
           ))}
         </ul>

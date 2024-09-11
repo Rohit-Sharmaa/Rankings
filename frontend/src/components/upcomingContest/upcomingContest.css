@@ -1,0 +1,119 @@
+.upcoming_contest_title {
+  margin-top: 7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.upcoming_contest_title h3 {
+  font-size: 2.7rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.upcoming_contest_title p {
+  font-size: 1.2rem;
+  font-weight: 100;
+}
+
+.upcoming_contest_title p span {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.upcoming_contest_table {
+  width: 60%;
+  border-collapse: collapse;
+  margin-top: 3rem;
+  margin: 3rem auto;
+}
+
+.upcoming_contest_table th,
+.upcoming_contest_table td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  word-wrap: break-word;
+  vertical-align: middle;
+}
+
+.upcoming_contest_thead th {
+  background-color: #f8f9fa;
+}
+
+.upcoming_contest_table tbody tr {
+  border-bottom: none;
+}
+
+.upcoming_contest_item {
+  display: flex;
+  align-items: center;
+}
+
+.upcoming_contest_avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.upcoming_contest_fw-bold {
+  font-weight: bold;
+}
+
+.upcoming_contest_fw-normal {
+  font-weight: normal;
+}
+
+.upcoming_contest_text-muted {
+  color: #6c757d;
+}
+
+.upcoming_contest_badge {
+  display: inline-block;
+  padding: 0.5em 1em;
+  font-size: 0.875em;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  vertical-align: baseline;
+  border-radius: 1.25rem;
+}
+.upcoming_contest_duration_icon {
+  display: flex;
+}
+.upcoming_contest_duration_icon p {
+  margin-left: 0.5rem;
+}
+
+.upcoming_contest_table td,
+.upcoming_contest_table th {
+  text-align: left;
+  vertical-align: middle;
+}
+
+.upcoming_contest_table th:nth-child(1),
+.upcoming_contest_table td:nth-child(1) {
+  width: 20%;
+}
+
+.upcoming_contest_table th:nth-child(2),
+.upcoming_contest_table td:nth-child(2) {
+  width: 40%;
+}
+
+.upcoming_contest_table th:nth-child(3),
+.upcoming_contest_table td:nth-child(3) {
+  width: 20%;
+}
+
+.upcoming_contest_table th:nth-child(4),
+.upcoming_contest_table td:nth-child(4) {
+  width: 15%;
+}
+
+.upcoming_contest_table th:nth-child(5),
+.upcoming_contest_table td:nth-child(5) {
+  width: 5%;
+}

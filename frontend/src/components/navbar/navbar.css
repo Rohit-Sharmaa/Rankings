@@ -43,11 +43,12 @@
   font-weight: 700px;
 }
 
-.nav_menu a {
+.nav_menu .nav_list_item {
   color: var(--color-black);
   text-decoration: none;
   font-weight: bold;
   font-size: large;
+  cursor: pointer;
 }
 .login_button {
   display: flex;
