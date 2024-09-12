@@ -92,9 +92,7 @@ button {
 
 .m_nav_hidden{
   display: none;
-  animation: slideOutToRight 0.7s backwards;
-  animation-timing-function: ease-out;
-
+  animation: slideOutToRight 1s ease-in-out forwards;
 }
 .m_nav_menu{
   padding: 3rem; 
@@ -110,13 +108,12 @@ button {
   list-style-type: none;
   background-color: var(--color-light);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  animation: slideInFromRight 0.7s forwards;
-  animation-timing-function: ease-in-out;
+  animation: slideInFromRight 1s ease-in-out forwards; 
 }
 .m_nav_menu_ul{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 22px;
     text-align: center;
 }
 .m_nav_menu_ul .m_nav_menu_ul_link {
@@ -125,6 +122,8 @@ button {
     text-decoration: none;
     font-size: large;
     cursor: pointer;
+    margin: 22px;
+    padding: 1px;
 }
 .m_nav_menu_ul .m_nav_menu_ul_link:hover{
     font-weight: bold;
@@ -135,22 +134,25 @@ button {
     cursor: pointer;
 }
 
-    
-@media screen and (max-width: 900px) {
+   
+@media  (max-width: 900px) {
    .nav_menu{
       display: none;
      }  
+     /* .nav_logo_container, .login_button, .m_nav_icon  */
+     
+     .nav_container{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
   }
-@media screen and (min-width: 900px) {
+@media  (min-width: 900px) {
      .m_nav_icon{
         display: none;
       }
-      .nav_container {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-
-      }
+     
       
   }
 @keyframes slideInFromRight {

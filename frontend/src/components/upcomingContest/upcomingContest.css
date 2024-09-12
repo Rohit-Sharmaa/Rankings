@@ -135,6 +135,11 @@
 }
 /* Extra large devices (large desktops, 1200px and up) */
 @media (max-width: 1200px) {
+  .table_container{
+    overflow-x: auto;
+    padding: 10px;
+    margin: 10px;
+  }
   .upcoming_contest_table {
     width: calc(100% - 6rem); /* 3rem margins on both sides */
   }
@@ -152,6 +157,11 @@
 
 /* Large devices (992px to 1199px) */
 @media (max-width: 992px) {
+  .table_container{
+    overflow-x: auto;
+    padding: 10px;
+    margin: 10px;
+  }
   .upcoming_contest_table {
     width: calc(100% - 6rem);
     margin-left: 0;
@@ -166,6 +176,11 @@
 
 /* Medium devices (768px to 991px) */
 @media (max-width: 768px) {
+  .table_container{
+    overflow-x: auto;
+    padding: 10px;
+    margin: 10px;
+  }
   .upcoming_contest_title h3 {
     font-size: 2.4rem;
     text-align: center;
@@ -200,6 +215,11 @@
 /* Small devices (576px to 767px) */
 /* Small devices (576px to 767px) */
 @media (max-width: 576px) {
+  .table_container{
+    overflow-x: auto;
+    padding: 10px;
+    margin: 10px;
+  }   
   .upcoming_contest_title h3 {
     font-size: 1.7rem;
     text-align: center;

@@ -93,60 +93,66 @@ export default function UpcomingContest() {
           <span>, &nbsp;so you don't have to!</span>
         </p>
       </div>
-      <table className="upcoming_contest_table">
-        <thead className="upcoming_contest_thead">
-          <tr>
-            <th>Platform</th>
-            <th>Title</th>
-            <th>Starts</th>
-            <th>Duration</th>
-            <th className="upcoming_contest_add">Add</th>
-          </tr>
-        </thead>
-        <tbody className="table_body">
-          {contests.map((entry, index) => (
-            <tr key={index}>
-              <td>
-                <div className="upcoming_contest_item">
-                  <img
-                    src={logoMap[entry.host] || "default-logo.png"} // Provide a fallback logo
-                    alt={entry.host}
-                    className="upcoming_contest_avatar"
-                  />
-                  <div className="upcoming_contest_info">
-                    <p className="upcoming_contest_fw-bold">{entry.host}</p>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <a href={entry.href} target="_blank" rel="noopener noreferrer">
-                  <p className="upcoming_contest_fw-normal contest_event_title">
-                    {entry.event}
-                  </p>
-                </a>
-              </td>
-              <td className="upcoming_contest_start_duration">
-                <span>
-                  <BiCalendar />
-                </span>
-                &nbsp;
-                <span className="upcoming_contest_fw-normal">
-                  {entry.startTime}
-                </span>
-              </td>
-              <td>
-                <span className="upcoming_contest_duration_icon">
-                  <IoMdTime className="upcoming_contest_duration_time_icon" />
-                  <p>{entry.duration}</p>
-                </span>
-              </td>
-              <td>
-                <TbCalendarPlus className="upcoming_contest_calender_icon" />
-              </td>
+      <div className="table_container ">
+        <table className="upcoming_contest_table">
+          <thead className="upcoming_contest_thead">
+            <tr>
+              <th>Platform</th>
+              <th>Title</th>
+              <th>Starts</th>
+              <th>Duration</th>
+              <th className="upcoming_contest_add">Add</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody className="table_body">
+            {contests.map((entry, index) => (
+              <tr key={index}>
+                <td>
+                  <div className="upcoming_contest_item">
+                    <img
+                      src={logoMap[entry.host] || "default-logo.png"} // Provide a fallback logo
+                      alt={entry.host}
+                      className="upcoming_contest_avatar"
+                    />
+                    <div className="upcoming_contest_info">
+                      <p className="upcoming_contest_fw-bold">{entry.host}</p>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <a
+                    href={entry.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <p className="upcoming_contest_fw-normal contest_event_title">
+                      {entry.event}
+                    </p>
+                  </a>
+                </td>
+                <td className="upcoming_contest_start_duration">
+                  <span>
+                    <BiCalendar />
+                  </span>
+                  &nbsp;
+                  <span className="upcoming_contest_fw-normal">
+                    {entry.startTime}
+                  </span>
+                </td>
+                <td>
+                  <span className="upcoming_contest_duration_icon">
+                    <IoMdTime className="upcoming_contest_duration_time_icon" />
+                    <p>{entry.duration}</p>
+                  </span>
+                </td>
+                <td>
+                  <TbCalendarPlus className="upcoming_contest_calender_icon" />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </section>
   );
 }
