@@ -50,6 +50,16 @@
   font-size: large;
   cursor: pointer;
 }
+.nav_menu .nav_list_item:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: large;
+  cursor: pointer;
+}
+/*uncomment when pages created */
+/* .nav_menu .nav_list_item.active {
+  color: var(--color-primary);
+} */
 .login_button {
   display: flex;
   justify-content: space-between;
@@ -73,4 +83,94 @@ button {
 
 .coursel {
   margin-top: 4rem;
+}
+
+.nav_menu_container{
+  display: flex;
+  justify-content: center;
+}
+
+.m_nav_hidden{
+  display: none;
+  animation: slideOutToRight 0.7s backwards;
+  animation-timing-function: ease-out;
+
+}
+.m_nav_menu{
+  padding: 3rem; 
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 3.5rem; 
+  right:0px; 
+  margin: 0.5rem 1rem; 
+  min-width: 280px; 
+  height: 100vh;
+  z-index: 10; 
+  list-style-type: none;
+  background-color: var(--color-light);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: slideInFromRight 0.7s forwards;
+  animation-timing-function: ease-in-out;
+}
+.m_nav_menu_ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+}
+.m_nav_menu_ul .m_nav_menu_ul_link {
+    
+    color: var(--color-black);
+    text-decoration: none;
+    font-size: large;
+    cursor: pointer;
+}
+.m_nav_menu_ul .m_nav_menu_ul_link:hover{
+    font-weight: bold;
+    color: rgb(180, 113, 243);
+}
+
+.m_nav_icon:hover{
+    cursor: pointer;
+}
+
+    
+@media screen and (max-width: 900px) {
+   .nav_menu{
+      display: none;
+     }  
+  }
+@media screen and (min-width: 900px) {
+     .m_nav_icon{
+        display: none;
+      }
+      .nav_container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+      }
+      
+  }
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%); 
+  }
+  to {
+    opacity: 1;
+    transform: translateX(10%); 
+  }
+}
+
+@keyframes slideOutToRight {
+  from {
+    opacity: 1;
+    transform: translateX(0); 
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%); 
+  }
 }
