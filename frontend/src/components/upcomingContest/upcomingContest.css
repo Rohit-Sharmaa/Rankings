@@ -10,23 +10,27 @@
   font-size: 2.7rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
+  background-color: var(--color-primary);
+  color: var(--color-white);
 }
 
 .upcoming_contest_title p {
   font-size: 1.2rem;
   font-weight: 100;
+  opacity: 80%;
 }
 
 .upcoming_contest_title p span {
   font-size: 1.3rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .upcoming_contest_table {
-  width: 60%;
+  width: 70%;
   border-collapse: collapse;
   margin-top: 3rem;
   margin: 3rem auto;
+  overflow: hidden;
 }
 
 .upcoming_contest_table th,
@@ -56,6 +60,8 @@
   height: 45px;
   border-radius: 50%;
   margin-right: 10px;
+  padding: 10px;
+  background-color: var(--color-light);
 }
 
 .upcoming_contest_fw-bold {
@@ -64,8 +70,11 @@
 
 .upcoming_contest_fw-normal {
   font-weight: normal;
+  color: black;
 }
-
+.contest_event_title:hover {
+  text-decoration: underline;
+}
 .upcoming_contest_text-muted {
   color: #6c757d;
 }
@@ -86,7 +95,14 @@
 .upcoming_contest_duration_icon p {
   margin-left: 0.5rem;
 }
-
+.upcoming_contest_calender_icon {
+  font-size: 28px;
+  background-color: var(--color-light);
+  padding: 5px;
+}
+.upcoming_contest_calender_icon:hover {
+  cursor: pointer;
+}
 .upcoming_contest_table td,
 .upcoming_contest_table th {
   text-align: left;
@@ -116,4 +132,135 @@
 .upcoming_contest_table th:nth-child(5),
 .upcoming_contest_table td:nth-child(5) {
   width: 5%;
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (max-width: 1200px) {
+  .upcoming_contest_table {
+    width: calc(100% - 6rem); /* 3rem margins on both sides */
+  }
+
+  .upcoming_contest_avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .upcoming_contest_table th:nth-child(2),
+  .upcoming_contest_table td:nth-child(2) {
+    width: 50%;
+  }
+}
+
+/* Large devices (992px to 1199px) */
+@media (max-width: 992px) {
+  .upcoming_contest_table {
+    width: calc(100% - 6rem);
+    margin-left: 0;
+    margin-right: 0; /* Still 3rem margins */
+  }
+
+  .upcoming_contest_table th:nth-child(2),
+  .upcoming_contest_table td:nth-child(2) {
+    width: 45%;
+  }
+}
+
+/* Medium devices (768px to 991px) */
+@media (max-width: 768px) {
+  .upcoming_contest_title h3 {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  .upcoming_contest_table {
+    width: calc(100% - 6rem);
+    margin-left: 0;
+    margin-right: 0;
+  }
+  /* .upcoming_contest_fw-bold {
+    display: none;
+  } */
+  /*
+  .upcoming_contest_calender_icon {
+    display: none;
+  }
+  .upcoming_contest_add {
+    display: none;
+  } */
+  .upcoming_contest_table th:nth-child(2),
+  .upcoming_contest_table td:nth-child(2) {
+    width: 50%;
+  }
+
+  .upcoming_contest_table th:nth-child(3),
+  .upcoming_contest_table td:nth-child(3) {
+    width: 15%;
+  }
+}
+
+/* Small devices (576px to 767px) */
+/* Small devices (576px to 767px) */
+@media (max-width: 576px) {
+  .upcoming_contest_title h3 {
+    font-size: 1.7rem;
+    text-align: center;
+  }
+
+  .upcoming_contest_table {
+    width: 100%; /* Set to 100% to occupy full width */
+    margin-left: 0;
+    margin-right: 0;
+    overflow-x: auto;
+    margin-top: 1rem; /* Allow horizontal scrolling if needed */
+  }
+  .upcoming_contest_baseLine {
+    display: none;
+  }
+  .upcoming_contest_duration_time_icon {
+    display: none;
+  }
+
+  .upcoming_contest_table th,
+  .upcoming_contest_table td {
+    padding: 10px;
+    font-size: 0.9rem; /* Adjust font size for better readability */
+  }
+
+  .upcoming_contest_table th:nth-child(1),
+  .upcoming_contest_table td:nth-child(1) {
+    width: 25%; /* Adjust width for better distribution */
+  }
+
+  .upcoming_contest_table th:nth-child(2),
+  .upcoming_contest_table td:nth-child(2) {
+    width: 45%; /* Adjust width for better distribution */
+  }
+
+  .upcoming_contest_table th:nth-child(3),
+  .upcoming_contest_table td:nth-child(3) {
+    width: 15%; /* Adjust width for better distribution */
+  }
+
+  .upcoming_contest_table th:nth-child(4),
+  .upcoming_contest_table td:nth-child(4) {
+    width: 10%; /* Adjust width for better distribution */
+  }
+
+  .upcoming_contest_table th:nth-child(5),
+  .upcoming_contest_table td:nth-child(5) {
+    width: 5%; /* Adjust width for better distribution */
+  }
+
+  .upcoming_contest_avatar {
+    width: 35px;
+    height: 35px;
+  }
+
+  .upcoming_contest_duration_icon {
+    display: block;
+    margin-left: 0;
+  }
+
+  .upcoming_contest_duration_icon p {
+    font-size: 0.9rem;
+  }
 }
