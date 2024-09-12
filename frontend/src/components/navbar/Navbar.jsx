@@ -1,7 +1,7 @@
 import "./navbar.css";
 import logo from "../../assests/7.jpg";
 import data from "./data.js";
-import { Link, Navigate, NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { MdMenuOpen } from "react-icons/md";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";

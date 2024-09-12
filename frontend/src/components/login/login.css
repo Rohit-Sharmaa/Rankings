@@ -4,20 +4,20 @@
   align-items: center;
   min-height: 100vh;
   background-color: #f5f5f5;
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 
 .sign_in_card {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 30px;
+  padding: 20px;
   width: 400px;
   text-align: center;
 }
 
 .sign_in_logo {
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
 .sign_in_logo img {
@@ -34,14 +34,14 @@
 .sign_in_detals_line {
   font-size: 16px;
   color: #666;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .sign_in_social-login {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .sign_in_social-login button {
@@ -96,6 +96,7 @@
 .forgot-password {
   display: block;
   margin-bottom: 15px;
+  margin-top: 10px;
   color: #666;
   text-decoration: none;
 }
@@ -126,13 +127,14 @@
   color: #666;
 }
 
-.create-account a {
+.create-account span {
   color: #4285f4;
   text-decoration: none;
 }
 
-.create-account a:hover {
+.create-account span:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .line-container {
@@ -171,4 +173,18 @@
   transition: background-color 0.3s ease;
   justify-content: center;
   align-items: center;
+}
+
+/* .Login_password_requirements ul {
+  margin-top: 2px;
+} */
+
+.Login_password_requirements li {
+  font-size: 14px;
+  opacity: 0.5;
+  font-weight: 100;
+  color: #000;
+  list-style-position: inside;
+  text-align: left;
+  list-style-type: disc !important;
 }
