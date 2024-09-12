@@ -1,11 +1,17 @@
 import "./navbar.css";
 import logo from "../../assests/7.jpg";
 import data from "./data.js";
-import { Link, NavLink } from "react-router-dom";
+import { Link, Navigate, NavLink } from "react-router-dom";
 import { MdMenuOpen } from "react-icons/md";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 function Navbar() {
+  const navigate = useNavigate();
   const [toggle, setToggle] = useState(false);
+
+  const handleLoginClick = () => {
+    navigate("/login");
+  };
 
   return (
     <nav className="navbar">
@@ -35,7 +41,9 @@ function Navbar() {
           {/* <button className="btn light theme">
             <MdOutlineLightMode />
           </button> */}
-          <button className="btn white sm">Login</button>
+          <button className="btn white sm" onClick={handleLoginClick}>
+            Login
+          </button>
         </div>
 
         <div>{/* sign up and sign in button  */}</div>
