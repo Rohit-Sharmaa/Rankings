@@ -1,7 +1,7 @@
 import "./navbar.css";
 import logo from "../../assests/7.jpg";
 import data from "./data.js";
-import { Link, Navigate, NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { MdMenuOpen } from "react-icons/md";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -13,12 +13,18 @@ function Navbar() {
     navigate("/login");
   };
 
+  const hanleRankingClick = () => {
+    navigate("/");
+  };
+
   return (
     <nav className="navbar">
       <div className="nav_container">
         <div className="nav_logo_container">
           <img src={logo} alt="logo" className="nav_logo" />
-          <h3>Ranking</h3>
+          <h3 onClick={hanleRankingClick} className="nav_title">
+            Ranking
+          </h3>
         </div>
         {/* this is for option  */}
 

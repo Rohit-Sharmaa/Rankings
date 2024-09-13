@@ -3,6 +3,7 @@ import generateOTP from "../utils/generateOtp.js";
 import { sendEmail } from "../utils/sendEmail.utils.js";
 import User from "./../models/user.model.js";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 export async function signup(req, res) {
   try {
     const { email } = req.body;
@@ -47,7 +48,9 @@ export async function verifyOtp(req, res) {
     const { email, otp, password } = req.body;
 
     if (!email || !otp || !password) {
-      return res.send({ message: "Please provide valid credentials" });
+      return res
+        .status(400)
+        .json({ message: "Please provide valid credentials" });
     }
 
     const otpEntry = await OTPModel.findOne({ email });
@@ -76,7 +79,19 @@ export async function verifyOtp(req, res) {
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = new User({ email, password: hashedPassword });
     await user.save();
-    return res.json({ message: "User created successfully" });
+    const token = jwt.sign(
+      { userId: user._id, email: user.email },
+      process.env.JWT_SECRET_KEY,
+      {
+        expiresIn: "24h",
+      }
+    );
+
+    console.log("singup verify otp --> ", token);
+
+    return res
+      .status(200)
+      .json({ message: "User created successfully", token });
   } catch (error) {
     console.log(error.message);
     return res.status(500).json({ message: "Something went wrong" });

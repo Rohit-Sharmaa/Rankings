@@ -20,8 +20,8 @@ router.post("/googleSignup", googleAuthSignup);
 router.post("/forgetPassword", forgetPassword);
 router.post("/resetPassword", resetPassword);
 
-router.get("/info", (req, res) => {
-  res.status(201).json("I am auth router file");
-});
+// router.get("/info", (req, res) => {
+//   res.status(201).json("I am auth router file");
+// });
 
 export default router;

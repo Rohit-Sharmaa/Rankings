@@ -5,8 +5,9 @@ import OTPModel from "../models/user.otp.mode.js";
 import bcrypt from "bcrypt";
 export const googleAuthLogin = async (req, res) => {
   try {
+    console.log("googleAuthLogin request");
     const { name, email } = req.body;
-
+    console.log("google auth backend--", name, " ", email);
     const user = await User.findOneAndUpdate(
       { email },
       { name },
@@ -24,10 +25,10 @@ export const googleAuthLogin = async (req, res) => {
         expiresIn: "24h",
       }
     );
-
+    console.log("Executed everthing");
     return res.status(200).json({ message: "Login Successfully", token });
   } catch (error) {
-    console.log(error.message);
+    console.log("backend error message", error.message);
     return res.status(500).json({ message: "Something went wrong" });
   }
 };
@@ -39,7 +40,9 @@ export const googleAuthSignup = async (req, res) => {
     const user = await User.findOne({ email });
 
     if (user) {
-      return res.status(400).json({ message: "User Already Exists." });
+      return res
+        .status(400)
+        .json({ message: "User Already Exists. Please Login" });
     }
 
     const otp = generateOTP();
