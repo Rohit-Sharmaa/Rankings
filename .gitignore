@@ -9,4 +9,5 @@ frontend/.env
 
 .vscode/*
 
+app.log
 
