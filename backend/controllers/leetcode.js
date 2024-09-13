@@ -9,6 +9,7 @@ export const leetcode = async (req, res) => {
     console.log("leetcode file-->" + req.body);
     const { leetcodeUsername } = req.body;
     const userId = req.user.userId;
+    console.log(leetcodeUsername);
 
     const baseUrl = process.env.LEETCODE_API_BASE_URL;
     const apiUrl = `${baseUrl}/${leetcodeUsername}`;

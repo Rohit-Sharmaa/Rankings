@@ -13,12 +13,18 @@ function Navbar() {
     navigate("/login");
   };
 
+  const hanleRankingClick = () => {
+    navigate("/");
+  };
+
   return (
     <nav className="navbar">
       <div className="nav_container">
         <div className="nav_logo_container">
           <img src={logo} alt="logo" className="nav_logo" />
-          <h3>Ranking</h3>
+          <h3 onClick={hanleRankingClick} className="nav_title">
+            Ranking
+          </h3>
         </div>
         {/* this is for option  */}
 

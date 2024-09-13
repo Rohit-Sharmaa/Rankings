@@ -9,6 +9,7 @@ import UpcomingContest from "./components/upcomingContest/UpcomingContest";
 import "./App.css"; // Import your CSS file here
 import Login from "./components/login/Login";
 import SignUp from "./components/signup/SignUp";
+import Profile from "./components/Profile/Profile";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function Layout() {
         <Route path="/contest" element={<UpcomingContest />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </>
   );
