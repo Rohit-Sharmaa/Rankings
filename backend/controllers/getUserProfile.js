@@ -176,7 +176,7 @@ export const getUserProfile = async (req, res) => {
       );
     }
 
-    const updatedUser = await User.findById({ _id: userId });
+    const updatedUser = await User.findById(userId, { password: 0 });
 
     return res.status(200).json({ message: "User Profile", updatedUser });
   } catch (error) {

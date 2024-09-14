@@ -1,0 +1,16 @@
+.analyze_container {
+  margin-top: 7rem;
+  text-align: center;
+}
+.analyze_container h3 {
+  display: inline;
+  font-size: 2rem;
+  background-color: var(--color-primary);
+  color: #ffff;
+  padding: 10px;
+}
+.analyze_base_line {
+  margin-top: 0.9rem;
+  font-size: 1rem;
+  opacity: 80%;
+}

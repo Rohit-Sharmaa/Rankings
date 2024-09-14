@@ -110,7 +110,7 @@ export default function UpcomingContest() {
                 <td>
                   <div className="upcoming_contest_item">
                     <img
-                      src={logoMap[entry.host] || "default-logo.png"} // Provide a fallback logo
+                      src={logoMap[entry.host] || "default-logo.png"}
                       alt={entry.host}
                       className="upcoming_contest_avatar"
                     />

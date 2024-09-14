@@ -10,6 +10,7 @@ import "./App.css"; // Import your CSS file here
 import Login from "./components/login/Login";
 import SignUp from "./components/signup/SignUp";
 import Profile from "./components/Profile/Profile";
+import Analyze from "./components/Analyze/Analyze";
 
 function App() {
   return (
@@ -41,6 +42,9 @@ function Layout() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/analyze" element={<Analyze />} />
+        <Route path="/contributor" element={<Contributer />} />
+        <Route path="/howitworks" element={<HowItWorks />} />
       </Routes>
     </>
   );

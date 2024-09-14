@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 10rem;
+  margin-top: 4rem;
   background-color: var(--color-light);
 }
 .title {

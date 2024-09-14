@@ -1,7 +1,7 @@
 import React from "react";
 import "./header.css";
 import Coursel from "../../utils/Coursel";
-
+import { Link } from "react-router-dom";
 export default function Header() {
   return (
     <div className="top_container">
@@ -26,8 +26,13 @@ export default function Header() {
       </div>
 
       <div className="cta_button">
-        <button className="btn primary sm">Let's Start</button>
-        <button className="btn light"> Analyze</button>
+        <Link to="/howitworks">
+          <button className="btn primary sm">Let's Start</button>
+        </Link>
+        <Link to="/analyze">
+          {" "}
+          <button className="btn light"> Analyze</button>{" "}
+        </Link>
       </div>
 
       <div className="coursel">
