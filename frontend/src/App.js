@@ -13,6 +13,11 @@ import Profile from "./components/Profile/Profile";
 import Analyze from "./components/Analyze/Analyze";
 import ForgetPassword from "./components/forgetPassword/ForgetPassword";
 
+import { ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+
+
 function App() {
   return (
     <Router>
@@ -48,6 +53,7 @@ function Layout() {
         <Route path="/howitworks" element={<HowItWorks />} />
         <Route path="/forget" element={<ForgetPassword />} />
       </Routes>
+      <ToastContainer />
     </>
   );
 }

@@ -1,4 +1,5 @@
 import apiClient from "../config/axiosConfig";
+import { toast } from 'react-toastify';
 
 export const getAnalyzeApi = async () => {
   try {
@@ -14,21 +15,21 @@ export const getAnalyzeApi = async () => {
     const data = result.data;
 
     if (result.status === 200) {
-      alert("Here is your Coding Profiles details");
+      toast.success("Here is your Coding Profiles details");
       return data;
     } else if (result.status === 400) {
-      alert(data.message || "Something went wrong ");
+      toast.error(data.message || "Something went wrong");
       return data;
     } else {
-      alert(data.message || "Something went wrong ");
+      toast.error(data.message || "Something went wrong");
       return false;
     }
   } catch (error) {
-    console.error("Error adding LeetCode profile:", error);
+    console.error("Error getting user profile:", error);
     const errorMessage =
       error.response?.data?.message ||
-      "Something went wrong while adding Leetcode profile";
-    alert(errorMessage);
+      "Something went wrong while fetching user profile";
+    toast.error(errorMessage);
     return false;
   }
 };

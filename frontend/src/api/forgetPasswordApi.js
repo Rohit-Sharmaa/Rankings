@@ -1,11 +1,12 @@
 import apiClient from "../config/axiosConfig";
+import { toast } from "react-toastify";
 
 export const forgetPasswordApi = async (email) => {
   try {
     console.log("sentOtpapi-->", email);
 
     if (!email) {
-      alert("Email is required");
+      toast.error("Email is required");
       return false;
     }
 
@@ -16,16 +17,16 @@ export const forgetPasswordApi = async (email) => {
     const data = result.data;
 
     if (result.status === 200) {
-      alert("OTP sent to your email");
+      toast.error("OTP sent to your email");
       return true;
     } else {
-      alert(data.message || "Something went wrong");
+      toast.error(data.message || "Something went wrong");
       return false;
     }
   } catch (error) {
     const errorMessage =
       error.response?.data?.message || "Something went wrong";
-    alert(errorMessage);
+    toast.error(errorMessage);
     console.log("Error message:", errorMessage);
     return false;
   }

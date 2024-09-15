@@ -1,9 +1,10 @@
 import apiClient from "../config/axiosConfig";
+import { toast } from "react-toastify";
 
 export const handleSignUpApi = async (email, OTP, password) => {
   try {
     if (!email || !password || !OTP) {
-      alert("Email, password and otp are required");
+      toast.error("Email, password and otp are required");
       return false;
     }
 
@@ -21,16 +22,16 @@ export const handleSignUpApi = async (email, OTP, password) => {
     if (result.status === 200) {
       console.log("singup api Ranking--token", data.token);
       localStorage.setItem("Ranking-token", data.token);
-      alert("successfully Registered!");
+      toast.success("successfully Registered!");
       return true;
     } else {
-      alert(data.message || "Registration failed");
+      toast.error(data.message || "Registration failed");
       return false;
     }
   } catch (error) {
     const errorMessage =
       error.response?.data?.message || "Something went wrong during signup";
-    alert(errorMessage);
+    toast.error(errorMessage);
     console.log("Error message:", errorMessage);
     return false;
   }
@@ -41,7 +42,7 @@ export const sentOtpApi = async (email) => {
     console.log("sentOtpapi-->", email);
 
     if (!email) {
-      alert("Email is required");
+      toast.error("Email is required");
       return false;
     }
 
@@ -52,16 +53,16 @@ export const sentOtpApi = async (email) => {
     const data = result.data;
 
     if (result.status === 200) {
-      alert("OTP sent to your email");
+      toast.error("OTP sent to your email");
       return true;
     } else {
-      alert(data.message || "Something went wrong");
+      toast.error(data.message || "Something went wrong");
       return false;
     }
   } catch (error) {
     const errorMessage =
       error.response?.data?.message || "Something went wrong";
-    alert(errorMessage);
+    toast.error(errorMessage);
     console.log("Error message:", errorMessage);
     return false;
   }

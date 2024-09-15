@@ -1,4 +1,5 @@
 import apiClient from "../config/axiosConfig.js";
+import { toast } from "react-toastify";
 
 export const fetchUpcomingContests = async () => {
   try {
@@ -7,7 +8,7 @@ export const fetchUpcomingContests = async () => {
     const response = await apiClient.get(`/api/contest/upcoming`);
 
     if (response.status !== 200) {
-      alert("Something went wrong");
+      toast.error("Something went wrong");
       return;
     }
 

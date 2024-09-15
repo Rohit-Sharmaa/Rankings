@@ -1,5 +1,6 @@
 import apiClient from "./../config/axiosConfig";
-import { Toast } from "../components/Toast/toast";
+import { toast } from "react-toastify";
+
 export const addCodingProfileApi = {
   addLeetcodeProfile: async (username) => {
     try {
@@ -17,20 +18,18 @@ export const addCodingProfileApi = {
 
       const data = res.data;
       if (res.status === 200) {
-        alert("Leetcode profile is added!");
+        toast.success("Leetcode profile is added!");
       } else if (res.status === 401) {
-        alert("Please create your account to Add profile");
+        toast.error("Please create your account to add a profile");
       } else {
-        alert(
-          data.message || "Something went wrong while adding leetcode profile"
-        );
+        toast.error(data.message || "Something went wrong while adding Leetcode profile");
       }
     } catch (error) {
       console.error("Error adding LeetCode profile:", error);
       const errorMessage =
         error.response?.data?.message ||
         "Something went wrong while adding Leetcode profile";
-      alert(errorMessage);
+      toast.error(errorMessage);
     }
   },
 
@@ -38,6 +37,7 @@ export const addCodingProfileApi = {
     try {
       const token = localStorage.getItem("Ranking-token");
       console.log(username);
+
       const res = await apiClient.post(
         "/api/profiles/codechef",
         { codechefUsername: username },
@@ -50,20 +50,18 @@ export const addCodingProfileApi = {
 
       const data = res.data;
       if (res.status === 200) {
-        alert("Codechef profile is added!");
+        toast.success("Codechef profile is added!");
       } else if (res.status === 401) {
-        alert("Please create your account to Add profile");
+        toast.error("Please create your account to add a profile");
       } else {
-        alert(
-          data.message || "Something went wrong while adding Codechef profile"
-        );
+        toast.error(data.message || "Something went wrong while adding Codechef profile");
       }
     } catch (error) {
       console.error("Error adding Codechef profile:", error);
       const errorMessage =
         error.response?.data?.message ||
         "Something went wrong while adding Codechef profile";
-      alert(errorMessage);
+      toast.error(errorMessage);
     }
   },
 
@@ -83,20 +81,18 @@ export const addCodingProfileApi = {
 
       const data = res.data;
       if (res.status === 200) {
-        alert("Codeforces profile is added!");
+        toast.success("Codeforces profile is added!");
       } else if (res.status === 401) {
-        alert("Please create your account to Add profile");
+        toast.error("Please create your account to add a profile");
       } else {
-        alert(
-          data.message || "Something went wrong while adding Codeforces profile"
-        );
+        toast.error(data.message || "Something went wrong while adding Codeforces profile");
       }
     } catch (error) {
       console.error("Error adding Codeforces profile:", error);
       const errorMessage =
         error.response?.data?.message ||
         "Something went wrong while adding Codeforces profile";
-      alert(errorMessage);
+      toast.error(errorMessage);
     }
   },
 
@@ -116,21 +112,18 @@ export const addCodingProfileApi = {
 
       const data = res.data;
       if (res.status === 200) {
-        alert("GeeksforGeeks profile is added!");
+        toast.success("GeeksforGeeks profile is added!");
       } else if (res.status === 401) {
-        alert("Please create your account to Add profile");
+        toast.error("Please create your account to add a profile");
       } else {
-        alert(
-          data.message ||
-            "Something went wrong while adding GeeksforGeeks profile"
-        );
+        toast.error(data.message || "Something went wrong while adding GeeksforGeeks profile");
       }
     } catch (error) {
       console.error("Error adding GeeksforGeeks profile:", error);
       const errorMessage =
         error.response?.data?.message ||
         "Something went wrong while adding GeeksforGeeks profile";
-      alert(errorMessage);
+      toast.error(errorMessage);
     }
   },
 };

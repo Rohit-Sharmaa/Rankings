@@ -1,11 +1,12 @@
 import apiClient from "../config/axiosConfig";
+import { toast } from "react-toastify";
 
 export const handleResetPasswordApi = async (email, OTP, password) => {
   try {
     console.log("rester pass word-->", email, OTP, password);
 
     if (!email || !OTP || !password) {
-      alert("Email , otp & password are required");
+      toast.error("Email , otp & password are required");
       return false;
     }
 
@@ -18,16 +19,16 @@ export const handleResetPasswordApi = async (email, OTP, password) => {
     const data = result.data;
 
     if (result.status === 200) {
-      alert("Password reset succesfully");
+      toast.success("Password reset succesfully");
       return true;
     } else {
-      alert(data.message || "Something went wrong");
+      toast.error(data.message || "Something went wrong");
       return false;
     }
   } catch (error) {
     const errorMessage =
       error.response?.data?.message || "Something went wrong";
-    alert(errorMessage);
+    toast.error(errorMessage);
     console.log("Error message:", errorMessage);
     return false;
   }
