@@ -12,6 +12,7 @@ import SignUp from "./components/signup/SignUp";
 import Profile from "./components/Profile/Profile";
 import Analyze from "./components/Analyze/Analyze";
 import ForgetPassword from "./components/forgetPassword/ForgetPassword";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -48,6 +49,8 @@ function Layout() {
         <Route path="/howitworks" element={<HowItWorks />} />
         <Route path="/forget" element={<ForgetPassword />} />
       </Routes>
+
+      <Footer />
     </>
   );
 }

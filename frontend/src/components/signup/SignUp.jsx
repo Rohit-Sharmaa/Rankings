@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { validatePassword } from "../../utils/validatePassword.js";
 import { GoogleSignUpApi } from "../../utils/OAuth/OAuthSignUp.js";
 import { handleSignUpApi, sentOtpApi } from "../../api/handleSignUpApi.js";
-import { forgetPasswordApi } from "../../api/forgetPasswordApi.js";
+
 import { resendOtpApi } from "../../api/resendOtp.js";
 
 export default function SignUp() {

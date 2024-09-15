@@ -22,7 +22,7 @@ export default function AnalyzeListing() {
     };
 
     fetchData();
-  }, []);
+  }, [navigate]);
 
   const profiles = Object.keys(data).map((key) => ({
     platform: key,
