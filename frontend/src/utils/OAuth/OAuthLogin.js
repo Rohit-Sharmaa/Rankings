@@ -1,6 +1,7 @@
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { app } from "./firebase.js";
 import apiClient from "../../config/axiosConfig.js";
+import { toast } from "react-toastify";
 
 export const GoogleLoginkApi = async () => {
   try {
@@ -22,17 +23,17 @@ export const GoogleLoginkApi = async () => {
 
     if (res.status === 200) {
       localStorage.setItem("Ranking-token", data.token);
-      alert("Logged in successfully!");
+      toast.success("Logged in successfully!");
       return true;
     } else {
-      alert(data.message || "User does not exist or login failed");
+      toast.error(data.message || "User does not exist or login failed");
       return false;
     }
   } catch (error) {
     const errorMessage =
       error.response?.data?.message ||
       "Something went wrong during Google login";
-    alert(errorMessage);
+    toast.error(errorMessage);
     console.log("Error message:", errorMessage);
     return false;
   }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./profile.css";
 import { data } from "./data";
 import { addCodingProfileApi } from "../../api/addCodingProfileApi.js";
+import { toast } from "react-toastify";
 
 const Profile = () => {
   const [usernames, setUsernames] = useState({
@@ -22,7 +23,7 @@ const Profile = () => {
   const handleAddClick = (platform) => {
     const username = usernames[platform];
     if (!username.trim()) {
-      alert(`Please enter your ${platform} username`);
+      toast.error(`Please enter your ${platform} username`);
       return;
     }
 
@@ -37,7 +38,7 @@ const Profile = () => {
     } else if (platform === "GeeksforGeeks") {
       addCodingProfileApi.addGeeksforGeeksProfile(username); // Corrected here
     } else {
-      alert("Platform not supported");
+      toast.error("Platform not supported");
       return;
     }
   };

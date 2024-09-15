@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { validatePassword } from "../../utils/validatePassword.js";
 import { GoogleLoginkApi } from "../../utils/OAuth/OAuthLogin.js";
 import { handleLoginApi } from "../../api/handleLoginApi.js";
+import { toast } from "react-toastify";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ export default function Login() {
     event.preventDefault();
     const validationError = validatePassword(password);
     if (validationError) {
-      alert(validationError);
+      toast.error(validationError);
       return;
     }
 
