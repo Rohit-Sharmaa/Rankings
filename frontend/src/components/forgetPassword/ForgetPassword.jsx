@@ -1,15 +1,14 @@
 import React, { useState } from "react";
+import "./forgetPassword.css";
 import googlelogo from "../../assests/google.png";
-import "./signUp.css";
 import logo from "../../assests/7.jpg";
 import { useNavigate } from "react-router-dom";
 import { validatePassword } from "../../utils/validatePassword.js";
 import { GoogleSignUpApi } from "../../utils/OAuth/OAuthSignUp.js";
-import { handleSignUpApi, sentOtpApi } from "../../api/handleSignUpApi.js";
+import { handleSignUpApi } from "../../api/handleSignUpApi.js";
 import { forgetPasswordApi } from "../../api/forgetPasswordApi.js";
-import { resendOtpApi } from "../../api/resendOtp.js";
-
-export default function SignUp() {
+import { handleResetPasswordApi } from "../../api/handleResetPasswordApi.js";
+export default function ForgetPassword() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -36,6 +35,28 @@ export default function SignUp() {
         alert(validationError);
         return;
       }
+
+      console.log(email, " ", OTP, " ", password);
+      const result = await handleResetPasswordApi(email, OTP, password);
+      if (result) {
+        navigate("/");
+      }
+    } else {
+      //logic to send otp
+      const result = await forgetPasswordApi(email);
+
+      if (result) {
+        setIsOTPRequested(true);
+      }
+    }
+  };
+  const handleResendOTPClick = async (event) => {
+    if (!isOTPRequested) {
+      const validationError = validatePassword(password);
+      if (validationError) {
+        alert(validationError);
+        return;
+      }
       console.log(email, " ", OTP, " ", password);
       const result = await handleSignUpApi(email, OTP, password);
       if (result) {
@@ -43,14 +64,13 @@ export default function SignUp() {
       }
     } else {
       //logic to send otp
-      const result = await sentOtpApi(email);
+      const result = await forgetPasswordApi(email);
 
       if (result) {
         setIsOTPRequested(true);
       }
     }
   };
-
   const handleGoToLoginClick = () => {
     navigate("/login");
   };
@@ -62,13 +82,6 @@ export default function SignUp() {
     }
   };
 
-  const handleResendOTPClick = async () => {
-    const result = await resendOtpApi(email);
-
-    if (result) {
-      setIsOTPRequested(true);
-    }
-  };
   return (
     <div className="sign_up_container">
       <div className="sign_up_card">
@@ -77,7 +90,7 @@ export default function SignUp() {
         </div>
         <h1 className="sign_up_welcome">Welcome back</h1>
         <p className="sign_up_detals_line">
-          Please enter your details to Register
+          Please enter your details to ForgetPassword
         </p>
         <form onSubmit={handleSubmit}>
           <div className="sign_up_social-login">
@@ -111,6 +124,7 @@ export default function SignUp() {
               Send OTP
             </button>
           )}
+
           {isOTPRequested && (
             <>
               <div className="sign_up_form-group">
@@ -124,6 +138,7 @@ export default function SignUp() {
                   required
                 />
               </div>
+
               {isOTPRequested && (
                 <p className="resend_otp">
                   Resend?
@@ -131,12 +146,12 @@ export default function SignUp() {
                 </p>
               )}
               <div className="sign_up_form-group">
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password">New Password</label>
                 <input
                   type="password"
                   id="password"
                   value={password}
-                  placeholder="Password"
+                  placeholder="New Password"
                   onChange={handlePasswordChange}
                   required
                 />
@@ -152,7 +167,7 @@ export default function SignUp() {
                 type="submit"
                 className="btn primary sign_up_button register"
               >
-                Register
+                Reset
               </button>
             </>
           )}

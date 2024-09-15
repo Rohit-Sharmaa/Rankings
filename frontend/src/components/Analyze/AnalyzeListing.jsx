@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from "react";
 import Card from "../Card/Card";
 import { getAnalyzeApi } from "../../api/getAnalyzeApi";
-
+import { useNavigate } from "react-router-dom";
 export default function AnalyzeListing() {
+  const navigate = useNavigate();
   const [data, setData] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await getAnalyzeApi();
+        if (response.status === 400) {
+          navigate("/profile");
+          return;
+        }
+
         setData(response.updatedUser.CodingProfiles);
       } catch (error) {
         console.error("Error fetching data:", error);

@@ -11,7 +11,7 @@ export const getUserProfile = async (req, res) => {
     if (!userData) {
       return res.status(400).json({ message: "Please login or Register" });
     }
-
+    let cnt = 0;
     const leetcodeUsername = userData.CodingProfiles.leetcode.username;
 
     const gfgUsername = userData.CodingProfiles.gfg.username;
@@ -19,8 +19,14 @@ export const getUserProfile = async (req, res) => {
     const codechefUsername = userData.CodingProfiles.codechef.username;
 
     const codeforcesUsername = userData.CodingProfiles.codeforces.username;
-
+    console.log(
+      leetcodeUsername,
+      codechefUsername,
+      codeforcesUsername,
+      gfgUsername
+    );
     if (leetcodeUsername) {
+      cnt++;
       const baseUrl = process.env.LEETCODE_API_BASE_URL;
       const apiUrl = `${baseUrl}/${leetcodeUsername}`;
 
@@ -77,6 +83,7 @@ export const getUserProfile = async (req, res) => {
     }
 
     if (gfgUsername) {
+      cnt++;
       const baseUrl = process.env.GEEKSFORGEEKS_API_BASE_URL;
       const apiUrl = `${baseUrl}/${gfgUsername}`;
 
@@ -104,7 +111,8 @@ export const getUserProfile = async (req, res) => {
       );
     }
 
-    if (!codechefUsername) {
+    if (codechefUsername) {
+      cnt++;
       const baseUrl = process.env.CODECHEF_API_BASE_URL;
 
       const apiUrl = `${baseUrl}/${codechefUsername}`;
@@ -133,7 +141,8 @@ export const getUserProfile = async (req, res) => {
       );
     }
 
-    if (!codeforcesUsername) {
+    if (codeforcesUsername) {
+      cnt++;
       const baseUrl1 = process.env.CODEFORCES_API_BASE_URL_FOR_USER_INFO;
       const apiUrl1 = `${baseUrl1}${codeforcesUsername}`;
 
@@ -174,6 +183,12 @@ export const getUserProfile = async (req, res) => {
         },
         { new: true, projection: { password: 0 } }
       );
+    }
+
+    if (cnt === 0) {
+      return res
+        .status(400)
+        .json({ message: "Please add your coding profiles to analyze" });
     }
 
     const updatedUser = await User.findById(userId, { password: 0 });

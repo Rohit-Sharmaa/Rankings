@@ -80,3 +80,41 @@ export const resetPassword = async (req, res) => {
     return res.status(500).json({ message: "Something went wrong" });
   }
 };
+
+export const resendOtp = async (req, res) => {
+  try {
+    const { email } = req.body;
+    if (!email) {
+      return res.json({ message: "Please enter a email" });
+    }
+    const existingUser = await User.findOne({ email });
+
+    if (existingUser) {
+      return res.status(400).json({ message: "User already  exist" });
+    }
+
+    const otp = generateOTP();
+    console.log(otp);
+    const result = await sendEmail(email, otp);
+    if (!result) {
+      return res.status(400).json({ message: "Please Provide a valid email" });
+    }
+
+    const hashedOtp = await bcrypt.hash(otp, 10);
+    await OTPModel.findOneAndUpdate(
+      { email },
+      {
+        otp: hashedOtp,
+        expiredAt: Date.now() + 3 * 60000,
+      },
+      { upsert: true, new: true }
+    );
+
+    return res.json({
+      message: `OTP sent to your email. This otp is valid only for 3 minutes`,
+    });
+  } catch (error) {
+    console.log(error.message);
+    return res.json({ message: "Something went wrong" });
+  }
+};

@@ -11,6 +11,7 @@ import Login from "./components/login/Login";
 import SignUp from "./components/signup/SignUp";
 import Profile from "./components/Profile/Profile";
 import Analyze from "./components/Analyze/Analyze";
+import ForgetPassword from "./components/forgetPassword/ForgetPassword";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function Layout() {
         <Route path="/analyze" element={<Analyze />} />
         <Route path="/contributor" element={<Contributer />} />
         <Route path="/howitworks" element={<HowItWorks />} />
+        <Route path="/forget" element={<ForgetPassword />} />
       </Routes>
     </>
   );

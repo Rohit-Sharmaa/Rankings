@@ -30,7 +30,6 @@ export default function Header() {
           <button className="btn primary sm">Let's Start</button>
         </Link>
         <Link to="/analyze">
-          {" "}
           <button className="btn light"> Analyze</button>{" "}
         </Link>
       </div>

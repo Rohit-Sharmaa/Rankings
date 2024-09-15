@@ -6,6 +6,7 @@ import {
 } from "../controllers/google.auth.js";
 import {
   forgetPassword,
+  resendOtp,
   resetPassword,
 } from "../controllers/forgetPassword.js";
 import { login } from "../controllers/login.js";
@@ -19,6 +20,7 @@ router.post("/googleLogin", googleAuthLogin);
 router.post("/googleSignup", googleAuthSignup);
 router.post("/forgetPassword", forgetPassword);
 router.post("/resetPassword", resetPassword);
+router.post("/resendOtp", resendOtp);
 
 // router.get("/info", (req, res) => {
 //   res.status(201).json("I am auth router file");

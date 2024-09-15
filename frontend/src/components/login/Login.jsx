@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import googlelogo from "../../assests/google.png";
 import "./login.css";
 import logo from "../../assests/7.jpg";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { validatePassword } from "../../utils/validatePassword.js";
 import { GoogleLoginkApi } from "../../utils/OAuth/OAuthLogin.js";
 import { handleLoginApi } from "../../api/handleLoginApi.js";
@@ -105,9 +105,9 @@ export default function Login() {
               <li>Include at least one special character</li>
             </ul>
           </div>
-          <a href="/" className="forgot-password">
-            Forgot password?
-          </a>
+          <Link to="/forget">
+            <li className="forgot-password">Forgot password?</li>
+          </Link>
           <button type="submit" className="btn primary sign_in_button">
             Login
           </button>

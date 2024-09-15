@@ -159,6 +159,7 @@
 
 .forgot-password:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .sign_in_button {

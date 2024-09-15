@@ -183,3 +183,22 @@
 .register {
   margin-top: 20px;
 }
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.resend_otp {
+  text-align: right;
+}
+.resend_otp span {
+  color: #4285f4;
+  text-decoration: none;
+  margin-left: 2px;
+}
+
+.resend_otp span:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

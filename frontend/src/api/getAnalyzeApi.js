@@ -16,6 +16,9 @@ export const getAnalyzeApi = async () => {
     if (result.status === 200) {
       alert("Here is your Coding Profiles details");
       return data;
+    } else if (result.status === 400) {
+      alert(data.message || "Something went wrong ");
+      return data;
     } else {
       alert(data.message || "Something went wrong ");
       return false;
