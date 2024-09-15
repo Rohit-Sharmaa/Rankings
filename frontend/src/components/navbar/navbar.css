@@ -115,10 +115,12 @@ button {
 }
 .m_nav_menu_ul {
   display: flex;
+  align-items:center;
   flex-direction: column;
   gap: 22px;
   text-align: center;
 }
+
 .m_nav_menu_ul .m_nav_menu_ul_link {
   color: var(--color-black);
   text-decoration: none;
@@ -126,7 +128,9 @@ button {
   cursor: pointer;
   margin: 22px;
   padding: 1px;
+  margin-right:50px;
 }
+
 .m_nav_menu_ul .m_nav_menu_ul_link:hover {
   font-weight: bold;
   color: rgb(180, 113, 243);
@@ -137,6 +141,9 @@ button {
 }
 
 @media (max-width: 900px) {
+  .login_button{
+    display:none;
+  }
   .nav_menu {
     display: none;
   }
@@ -161,7 +168,7 @@ button {
   }
   to {
     opacity: 1;
-    transform: translateX(10%);
+    transform: translateX(20%);
   }
 }
 

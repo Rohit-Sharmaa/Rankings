@@ -73,6 +73,11 @@ function Navbar() {
                   </Link>
                 </li>
               ))}
+               <li>
+                <button className="btn white sm m_nav_login" onClick={handleLoginClick}>
+                  Login
+                </button>
+              </li>
             </ul>
           </div>
         </div>
