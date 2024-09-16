@@ -15,7 +15,7 @@ import ForgetPassword from "./components/forgetPassword/ForgetPassword";
 import Footer from "./components/Footer/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import About from "./components/About/About";
 import { useSelector } from "react-redux";
 import Loader from "./components/Loader/loader";
 
@@ -49,6 +49,7 @@ function Layout() {
               </>
             }
           />
+          <Route path="/about" element={<About/>}/>
           <Route path="/contest" element={<UpcomingContest />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
