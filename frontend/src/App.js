@@ -13,10 +13,10 @@ import Profile from "./components/Profile/Profile";
 import Analyze from "./components/Analyze/Analyze";
 import ForgetPassword from "./components/forgetPassword/ForgetPassword";
 import Footer from "./components/Footer/Footer";
-import { ToastContainer} from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-
+import { useSelector } from "react-redux";
+import Loader from "./components/Loader/loader";
 
 function App() {
   return (
@@ -29,32 +29,37 @@ function App() {
 }
 
 function Layout() {
+  const { loader } = useSelector((state) => state.loader);
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Header />
-              <HowItWorks />
-              <Contributer />
-              <Faq />
-            </>
-          }
-        />
-        <Route path="/contest" element={<UpcomingContest />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/analyze" element={<Analyze />} />
-        <Route path="/contributor" element={<Contributer />} />
-        <Route path="/howitworks" element={<HowItWorks />} />
-        <Route path="/forget" element={<ForgetPassword />} />
-      </Routes>
-      <Footer/>
-      <ToastContainer />
+      <div>
+        <div>{loader && <Loader />}</div>
+        <Navbar />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Header />
+                <HowItWorks />
+                <Contributer />
+                {/* <Loader /> */}
+                <Faq />
+              </>
+            }
+          />
+          <Route path="/contest" element={<UpcomingContest />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/analyze" element={<Analyze />} />
+          <Route path="/contributor" element={<Contributer />} />
+          <Route path="/howitworks" element={<HowItWorks />} />
+          <Route path="/forget" element={<ForgetPassword />} />
+        </Routes>
+        <Footer />
+        <ToastContainer />
+      </div>
     </>
   );
 }

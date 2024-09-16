@@ -59,10 +59,10 @@
   font-size: large;
   cursor: pointer;
 }
-/*uncomment when pages created */
-/* .nav_menu .nav_list_item.active {
+
+.nav_menu .nav_list_item.active {
   color: var(--color-primary);
-} */
+}
 .login_button {
   display: flex;
   justify-content: space-between;
