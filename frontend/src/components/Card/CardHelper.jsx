@@ -1,7 +1,8 @@
 import React from "react";
 import "./card.css";
 import { FaStar } from "react-icons/fa";
-
+import background from "../../assests/John Cena Says He Can't Challenge Undertaker; Will Appear on WWE SmackDown Live.jpeg";
+import dummylogo from "../../assests/dummy.jpg";
 export default function CardHelper({
   val1,
   val1name,
@@ -18,10 +19,24 @@ export default function CardHelper({
   streak,
   totalActiveDays,
   maxRank,
+  userAvater,
+  background,
 }) {
-  console.log(val1, " ", username, platform);
+  //console.log(val1, " ", username, platform, userAvater);
   return (
     <>
+      <div className="profile-card-header">
+        <img
+          src={background}
+          alt="Profile Banner"
+          className="profile-card-banner"
+        />
+        <img
+          src={userAvater || dummylogo}
+          alt="Profile Picture"
+          className="profile-card-avatar"
+        />
+      </div>
       <div className="profile-card-body">
         <h2 className="profile-card-name">{username}</h2>
         <p className="profile-card-title">

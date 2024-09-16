@@ -20,6 +20,9 @@ export const codeforces = async (req, res) => {
     let response = await fetch(apiUrl1);
 
     let data = await response.json();
+
+    console.log(data);
+
     if (data.status === "FAILED") {
       return res.status(400).json({ message: "Invalid codeforces username" });
     }
@@ -46,6 +49,7 @@ export const codeforces = async (req, res) => {
       maxRank: data.result[0].maxRank,
       maxRating: data.result[0].maxRating,
       questionSolved: solved.size || 0,
+      userAvatar: data.result[0].titlePhoto || "",
     };
 
     const updatedUser = await User.findByIdAndUpdate(

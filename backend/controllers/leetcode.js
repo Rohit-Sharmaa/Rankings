@@ -10,15 +10,11 @@ export const leetcode = async (req, res) => {
     const { leetcodeUsername } = req.body;
     const userId = req.user.userId;
     console.log(leetcodeUsername);
-
     const baseUrl = process.env.LEETCODE_API_BASE_URL;
     const apiUrl = `${baseUrl}/${leetcodeUsername}`;
     console.log(`Fetching from: ${apiUrl}`);
-
     const response = await fetch(apiUrl);
-
     const data = await response.json();
-
     const { matchedUser, userContestRanking } = data?.data || {};
 
     if (
@@ -55,6 +51,9 @@ export const leetcode = async (req, res) => {
         (stat) => stat.difficulty === "Hard"
       )?.count || 0;
 
+    const userAvatar = matchedUser?.profile?.userAvatar;
+    console.log(userAvatar);
+
     const updatedUser = await User.findByIdAndUpdate(
       userId,
       {
@@ -70,6 +69,7 @@ export const leetcode = async (req, res) => {
           "CodingProfiles.leetcode.EasySolved": EasySolved,
           "CodingProfiles.leetcode.MediumSolved": MediumSolved,
           "CodingProfiles.leetcode.HardSolved": HardSolved,
+          "CodingProfiles.leetcode.userAvatar": userAvatar,
         },
       },
       { new: true, projection: { password: 0 } }
@@ -82,7 +82,7 @@ export const leetcode = async (req, res) => {
         .json({ message: "User not found or update failed" });
     }
 
-    console.log("User updated:", updatedUser);
+    console.log("matched updated:", matchedUser);
 
     return res.status(200).json({
       message: "LeetCode profile updated successfully",

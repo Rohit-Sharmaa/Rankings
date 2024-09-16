@@ -61,6 +61,8 @@ export const getUserProfile = async (req, res) => {
           (stat) => stat.difficulty === "Hard"
         )?.count || 0;
 
+      const userAvatar = matchedUser?.profile?.userAvatar;
+
       const updatedUser = await User.findByIdAndUpdate(
         userId,
         {
@@ -76,6 +78,7 @@ export const getUserProfile = async (req, res) => {
             "CodingProfiles.leetcode.EasySolved": EasySolved,
             "CodingProfiles.leetcode.MediumSolved": MediumSolved,
             "CodingProfiles.leetcode.HardSolved": HardSolved,
+            "CodingProfiles.leetcode.userAvatar": userAvatar,
           },
         },
         { new: true, projection: { password: 0 } }
@@ -98,6 +101,7 @@ export const getUserProfile = async (req, res) => {
         EasySolved: data.solvedStats?.easy?.count || 0,
         MediumSolved: data.solvedStats?.medium?.count || 0,
         HardSolved: data.solvedStats?.hard?.count || 0,
+        userAvatar: data.info.profilePicture || "",
       };
 
       const updatedUser = await User.findByIdAndUpdate(
@@ -122,12 +126,13 @@ export const getUserProfile = async (req, res) => {
       const data = await response.json();
 
       const codechefData = {
-        username: data.name || codechefUsername,
+        username: codechefUsername,
         rating: data.currentRating,
         maxRating: data.highestRating,
         globalRank: data.globalRank,
         countryRank: data.countryRank,
         stars: data.stars ? data.stars.charAt(0) : 0,
+        userAvatar: data.profile || "",
       };
 
       const updatedUser = await User.findByIdAndUpdate(
@@ -172,6 +177,7 @@ export const getUserProfile = async (req, res) => {
         maxRank: data.result[0].maxRank,
         maxRating: data.result[0].maxRating,
         questionSolved: solved.size || 0,
+        userAvatar: data.result[0].titlePhoto || "",
       };
 
       const updatedUser = await User.findByIdAndUpdate(

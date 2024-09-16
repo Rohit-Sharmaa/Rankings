@@ -25,7 +25,7 @@ export const geeksforgeeks = async (req, res) => {
     console.log(`Fetching from: ${apiUrl}`);
 
     const response = await fetch(apiUrl);
-
+    console.log("geeks for geeks response", response);
     if (!response.ok) {
       console.error(
         `Failed to fetch from GeeksforGeeks: ${response.status} ${response.statusText}`
@@ -58,8 +58,9 @@ export const geeksforgeeks = async (req, res) => {
       EasySolved: data.solvedStats?.easy?.count || 0,
       MediumSolved: data.solvedStats?.medium?.count || 0,
       HardSolved: data.solvedStats?.hard?.count || 0,
+      userAvatar: data.info.profilePicture || "",
     };
-
+    console.log(data.info.profilePicture);
     const updatedUser = await User.findByIdAndUpdate(
       userId,
       {
