@@ -1,15 +1,21 @@
+// eslint-disable-next-line
 import apiClient from "../config/axiosConfig.js";
 
-export const fetchUpcomingContests = async () => {
+export const fetchUpcomingContests = async (
+  dispatch,
+  showLoading,
+  hideLoading
+) => {
   try {
     console.log(process.env.REACT_APP_API_BASE_URL);
-
+    dispatch(showLoading());
     const response = await apiClient.get(`/api/contest/upcoming`);
 
     if (response.status !== 200) {
       alert("Something went wrong");
       return;
     }
+    dispatch(hideLoading());
 
     const contestData = response.data.contestData;
     const validHosts = [
@@ -48,6 +54,7 @@ export const fetchUpcomingContests = async () => {
     return adjustedResponse.contestData.objects;
   } catch (error) {
     console.error("Error fetching upcoming contests:", error);
+    dispatch(hideLoading());
     throw error;
   }
 };

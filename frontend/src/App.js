@@ -10,20 +10,27 @@ import "./App.css"; // Import your CSS file here
 import Login from "./components/login/Login";
 import SignUp from "./components/signup/SignUp";
 import Profile from "./components/Profile/Profile";
+import Loader from "./components/Loader/loader";
+import { useSelector } from "react-redux";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/*" element={<Layout />} />
-      </Routes>
-    </Router>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/*" element={<Layout />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
 function Layout() {
+  const { loader } = useSelector((state) => state.loader);
+
   return (
-    <>
+    <div>
+      <div>{loader && <Loader />} </div>
       <Navbar />
       <Routes>
         <Route
@@ -42,7 +49,7 @@ function Layout() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
-    </>
+    </div>
   );
 }
 

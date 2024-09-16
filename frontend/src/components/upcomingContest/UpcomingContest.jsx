@@ -13,6 +13,8 @@ import tophlogo from "../../assests/images.jpeg";
 import hackerearthlogo from "../../assests/hackerearth.jpg";
 import atcoderlogo from "../../assests/atcoder.png";
 import { fetchUpcomingContests } from "../../api/fetchUpcomingContest.js";
+import {showLoading, hideLoading} from"../../redux/loader/loader.js"
+import { useDispatch } from "react-redux";
 
 const formatDuration = (durationInSeconds) => {
   const hours = Math.floor(durationInSeconds / 3600);
@@ -55,12 +57,13 @@ export default function UpcomingContest() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const location = useLocation();
-
+  const dispatch =useDispatch();
+  
   useEffect(() => {
     const loadContests = async () => {
       try {
         setLoading(true);
-        const data = await fetchUpcomingContests();
+        const data = await fetchUpcomingContests(dispatch, showLoading,hideLoading);
 
         const transformedData = data.map((contest) => ({
           ...contest,
