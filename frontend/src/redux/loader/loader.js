@@ -1,17 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  laoding: false,
+  loading: false,
 };
 const loaderSlice = createSlice({
   name: "loader",
   initialState,
   reducers: {
     showLoading: (state) => {
-      state.laoding = true;
+      state.loading = true;
     },
     hideLoading: (state) => {
-      state.laoding = false;
+      state.loading = false;
     },
   },
 });
