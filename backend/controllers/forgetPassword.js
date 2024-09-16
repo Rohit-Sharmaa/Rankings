@@ -110,11 +110,11 @@ export const resendOtp = async (req, res) => {
       { upsert: true, new: true }
     );
 
-    return res.json({
+    return res.status(200).json({
       message: `OTP sent to your email. This otp is valid only for 3 minutes`,
     });
   } catch (error) {
     console.log(error.message);
-    return res.json({ message: "Something went wrong" });
+    return res.status(400).json({ message: "Something went wrong" });
   }
 };
