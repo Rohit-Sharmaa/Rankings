@@ -64,11 +64,7 @@ export default function UpcomingContest() {
       try {
         // setLoading(true);
         dispatch(showLoading());
-        const data = await fetchUpcomingContests(
-          dispatch,
-          showLoading,
-          hideLoading
-        );
+        const data = await fetchUpcomingContests();
 
         const transformedData = data.map((contest) => ({
           ...contest,
