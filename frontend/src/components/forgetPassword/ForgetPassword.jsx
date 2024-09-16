@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./forgetPassword.css";
-import googlelogo from "../../assests/google.png";
+
 import logo from "../../assests/7.jpg";
 import { useNavigate } from "react-router-dom";
 import { validatePassword } from "../../utils/validatePassword.js";
@@ -8,6 +8,7 @@ import { GoogleSignUpApi } from "../../utils/OAuth/OAuthSignUp.js";
 import { handleSignUpApi } from "../../api/handleSignUpApi.js";
 import { forgetPasswordApi } from "../../api/forgetPasswordApi.js";
 import { handleResetPasswordApi } from "../../api/handleResetPasswordApi.js";
+import { FcGoogle } from "react-icons/fc";
 export default function ForgetPassword() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -99,7 +100,7 @@ export default function ForgetPassword() {
               className="google-btn"
               onClick={handleGoogleClick}
             >
-              <img src={googlelogo} alt="Google" />
+              <FcGoogle alt="google_icon" className="google_icon" />
             </button>
           </div>
           <div className="line-container">

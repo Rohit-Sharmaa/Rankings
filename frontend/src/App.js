@@ -6,17 +6,15 @@ import Header from "./components/header/Header";
 import HowItWorks from "./components/howItWorks/HowItWorks";
 import Navbar from "./components/navbar/Navbar";
 import UpcomingContest from "./components/upcomingContest/UpcomingContest";
-import "./App.css"; // Import your CSS file here
+import "./App.css";
 import Login from "./components/login/Login";
 import SignUp from "./components/signup/SignUp";
 import Profile from "./components/Profile/Profile";
 import Analyze from "./components/Analyze/Analyze";
 import ForgetPassword from "./components/forgetPassword/ForgetPassword";
 import Footer from "./components/Footer/Footer";
-import { ToastContainer} from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-
 
 function App() {
   return (
@@ -53,7 +51,7 @@ function Layout() {
         <Route path="/howitworks" element={<HowItWorks />} />
         <Route path="/forget" element={<ForgetPassword />} />
       </Routes>
-      <Footer/>
+      <Footer />
       <ToastContainer />
     </>
   );
