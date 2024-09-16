@@ -7,7 +7,7 @@ const About = () => {
       <section className="about-section">
         <h1>About Us</h1>
         <p>
-          Contest Hive started as a hobby project to gather all the contests happening around the internet in one place.
+          Contest started as a hobby project to gather all the contests happening around the internet in one place.
         </p>
         <p>
           But as time passed, I realized that it can be a great tool for people who are looking for contests to participate in.
