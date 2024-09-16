@@ -1,16 +1,7 @@
 import React from "react";
 import "./loader.css";
 const loader = () => {
-  return (
-    <div className="wrapper_container">
-      <div class="wrapper">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-      </div>
-    </div>
-  );
+  return <div class="loader"></div>;
 };
 
 export default loader;

@@ -13,6 +13,8 @@ import tophlogo from "../../assests/images.jpeg";
 import hackerearthlogo from "../../assests/hackerearth.jpg";
 import atcoderlogo from "../../assests/atcoder.png";
 import { fetchUpcomingContests } from "../../api/fetchUpcomingContest.js";
+import { showLoading, hideLoading } from "../../redux/loader/loader.js";
+import { useDispatch } from "react-redux";
 
 const formatDuration = (durationInSeconds) => {
   const hours = Math.floor(durationInSeconds / 3600);
@@ -53,13 +55,15 @@ const logoMap = {
 export default function UpcomingContest() {
   const [contests, setContests] = useState([]);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const location = useLocation();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const loadContests = async () => {
       try {
-        setLoading(true);
+        // setLoading(true);
+        dispatch(showLoading());
         const data = await fetchUpcomingContests();
 
         const transformedData = data.map((contest) => ({
@@ -67,21 +71,23 @@ export default function UpcomingContest() {
           startTime: formatDateToIST(contest.start),
           duration: formatDuration(contest.duration),
         }));
-
+        dispatch(hideLoading());
         setContests(transformedData);
         setError(null);
       } catch (err) {
         setError("Failed to fetch contests");
+        dispatch(hideLoading());
         setContests([]);
       } finally {
-        setLoading(false);
+        // setLoading(false);
+        dispatch(hideLoading());
       }
     };
 
     loadContests();
   }, [location]);
 
-  if (loading) return <p>Loading...</p>;
+  // if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
   return (

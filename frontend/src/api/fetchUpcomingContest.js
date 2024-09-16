@@ -9,6 +9,7 @@ export const fetchUpcomingContests = async () => {
 
     if (response.status !== 200) {
       toast.error("Something went wrong");
+
       return;
     }
 
@@ -49,6 +50,7 @@ export const fetchUpcomingContests = async () => {
     return adjustedResponse.contestData.objects;
   } catch (error) {
     console.error("Error fetching upcoming contests:", error);
+
     throw error;
   }
 };

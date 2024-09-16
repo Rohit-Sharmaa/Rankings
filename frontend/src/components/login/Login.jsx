@@ -8,11 +8,19 @@ import { GoogleLoginkApi } from "../../utils/OAuth/OAuthLogin.js";
 import { handleLoginApi } from "../../api/handleLoginApi.js";
 import { toast } from "react-toastify";
 import { FcGoogle } from "react-icons/fc";
+import { useDispatch } from "react-redux";
+import {
+  signInStart,
+  signInFailure,
+  signInSuccess,
+} from "../../redux/user/userSlice.js";
+import { showLoading, hideLoading } from "../../redux/loader/loader.js";
+
 export default function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const dispatch = useDispatch();
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
     console.log(email);
@@ -25,6 +33,7 @@ export default function Login() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    dispatch(showLoading());
     const validationError = validatePassword(password);
     if (validationError) {
       toast.error(validationError);
@@ -34,7 +43,15 @@ export default function Login() {
     console.log("Email:", email);
     console.log("Password:", password);
 
-    const result = await handleLoginApi(email, password);
+    const result = await handleLoginApi(
+      email,
+      password,
+      dispatch,
+      signInStart,
+      signInSuccess,
+      signInFailure
+    );
+    dispatch(hideLoading());
     if (result) {
       navigate("/");
     }
