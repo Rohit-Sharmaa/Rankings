@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import googlelogo from "../../assests/google.png";
 import "./signUp.css";
 import logo from "../../assests/7.jpg";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +7,7 @@ import { GoogleSignUpApi } from "../../utils/OAuth/OAuthSignUp.js";
 import { handleSignUpApi, sentOtpApi } from "../../api/handleSignUpApi.js";
 
 import { resendOtpApi } from "../../api/resendOtp.js";
-
+import { FcGoogle } from "react-icons/fc";
 export default function SignUp() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -86,7 +85,7 @@ export default function SignUp() {
               className="google-btn"
               onClick={handleGoogleClick}
             >
-              <img src={googlelogo} alt="Google" />
+              <FcGoogle alt="google_icon" className="google_icon" />
             </button>
           </div>
           <div className="line-container">

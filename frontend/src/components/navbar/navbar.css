@@ -115,7 +115,7 @@ button {
 }
 .m_nav_menu_ul {
   display: flex;
-  align-items:center;
+  align-items: center;
   flex-direction: column;
   gap: 22px;
   text-align: center;
@@ -128,7 +128,7 @@ button {
   cursor: pointer;
   margin: 22px;
   padding: 1px;
-  margin-right:50px;
+  margin-right: 50px;
 }
 
 .m_nav_menu_ul .m_nav_menu_ul_link:hover {
@@ -141,8 +141,8 @@ button {
 }
 
 @media (max-width: 900px) {
-  .login_button{
-    display:none;
+  .login_button {
+    display: none;
   }
   .nav_menu {
     display: none;

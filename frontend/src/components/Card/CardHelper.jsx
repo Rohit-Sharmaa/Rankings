@@ -1,7 +1,7 @@
 import React from "react";
 import "./card.css";
 import { FaStar } from "react-icons/fa";
-import background from "../../assests/John Cena Says He Can't Challenge Undertaker; Will Appear on WWE SmackDown Live.jpeg";
+
 import dummylogo from "../../assests/dummy.jpg";
 export default function CardHelper({
   val1,

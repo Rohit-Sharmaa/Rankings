@@ -34,7 +34,7 @@
 .sign_in_detals_line {
   font-size: 16px;
   color: #666;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .sign_in_social-login {
@@ -55,12 +55,16 @@
   cursor: pointer;
 }
 
-.sign_in_social-login button img {
+.sign_in_social-login button {
   width: 60px;
   height: 60px;
   margin-right: 10px;
   background-color: var(--color-light);
   border-radius: 15px;
+}
+.google_icon {
+  width: 40px;
+  height: 40px;
 }
 
 .sign_in_form-group {

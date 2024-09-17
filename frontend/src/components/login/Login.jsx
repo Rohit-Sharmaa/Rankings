@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import googlelogo from "../../assests/google.png";
+
 import "./login.css";
 import logo from "../../assests/7.jpg";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,6 +7,7 @@ import { validatePassword } from "../../utils/validatePassword.js";
 import { GoogleLoginkApi } from "../../utils/OAuth/OAuthLogin.js";
 import { handleLoginApi } from "../../api/handleLoginApi.js";
 import { toast } from "react-toastify";
+import { FcGoogle } from "react-icons/fc";
 import { useDispatch } from "react-redux";
 import {
   signInStart,
@@ -83,7 +84,7 @@ export default function Login() {
               className="google-btn"
               onClick={handleGoogleClick}
             >
-              <img src={googlelogo} alt="Google" />
+              <FcGoogle alt="google_icon" className="google_icon" />
             </button>
           </div>
           <div className="line-container">
