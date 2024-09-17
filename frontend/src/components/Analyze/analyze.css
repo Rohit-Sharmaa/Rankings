@@ -15,3 +15,17 @@
   font-size: 1rem;
   opacity: 80%;
 }
+
+.analyze_note {
+  margin-top: 2.5rem;
+  opacity: 80%;
+  background-color: var(--color-light);
+  padding: 1rem;
+}
+.refresh_profile {
+  color: blue;
+}
+.refresh_profile:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
