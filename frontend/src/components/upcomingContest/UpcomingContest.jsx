@@ -13,7 +13,7 @@ import tophlogo from "../../assests/images.jpeg";
 import hackerearthlogo from "../../assests/hackerearth.jpg";
 import atcoderlogo from "../../assests/atcoder.png";
 import { fetchUpcomingContests } from "../../api/fetchUpcomingContest.js";
-import Loader from "../Loader/Loader.jsx";
+import Loader from "../Loader/loader.jsx";
 const formatDuration = (durationInSeconds) => {
   const hours = Math.floor(durationInSeconds / 3600);
   const minutes = Math.floor((durationInSeconds % 3600) / 60);
