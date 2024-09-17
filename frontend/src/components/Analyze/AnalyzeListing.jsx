@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Card from "../Card/Card";
 import { getAnalyzeApi } from "../../api/getAnalyzeApi";
 import { useNavigate } from "react-router-dom";
-import Loader from "../../components/Loader/loader";
+import Loader from "../../components/Loader/Loader";
 export default function AnalyzeListing() {
   const navigate = useNavigate();
   const [data, setData] = useState({});

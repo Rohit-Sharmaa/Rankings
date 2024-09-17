@@ -1,6 +1,7 @@
 .analyze_container {
   margin-top: 7rem;
   text-align: center;
+  min-height: 100vh;
 }
 .analyze_container h3 {
   display: inline;

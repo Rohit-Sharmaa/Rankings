@@ -57,6 +57,10 @@ function Navbar() {
           <button className="btn white sm" onClick={handleLoginClick}>
             Login
           </button>
+          {/* This is for logout functionality  */}
+          {/* <button className="btn white sm" onClick={handleLogOutClick}>
+            Logout
+          </button> */}
         </div>
 
         <div>{/* sign up and sign in button  */}</div>

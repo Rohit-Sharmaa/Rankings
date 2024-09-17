@@ -1,6 +1,6 @@
 import apiClient from "../config/axiosConfig";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+
 export const getAnalyzeApi = async () => {
   try {
     console.log("getting request");
