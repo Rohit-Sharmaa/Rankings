@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Card from "../Card/Card";
 import { getAnalyzeApi } from "../../api/getAnalyzeApi";
+
 import { useNavigate, useLocation } from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
 

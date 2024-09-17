@@ -6,10 +6,11 @@ import { MdMenuOpen } from "react-icons/md";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
 function Navbar() {
   const navigate = useNavigate();
   const [toggle, setToggle] = useState(false);
-
+  const { user } = useSelector((state) => state.user);
   const handleLoginClick = () => {
     navigate("/login");
   };
@@ -54,17 +55,16 @@ function Navbar() {
           {/* <button className="btn light theme">
             <MdOutlineLightMode />
           </button> */}
-          <button className="btn white sm" onClick={handleLoginClick}>
-            Login
-          </button>
-          {/* This is for logout functionality  */}
-          {/* <button className="btn white sm" onClick={handleLogOutClick}>
-            Logout
-          </button> */}
+          {user ? (
+            <button className="btn white sm" onClick={handleLogOutClick}>
+              Logout
+            </button>
+          ) : (
+            <button className="btn white sm" onClick={handleLoginClick}>
+              Login
+            </button>
+          )}
         </div>
-
-        <div>{/* sign up and sign in button  */}</div>
-
         {/* Menu for smart phone*/}
         <div>
           <MdMenuOpen
