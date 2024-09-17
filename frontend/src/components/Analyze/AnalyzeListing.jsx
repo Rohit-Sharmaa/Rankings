@@ -2,28 +2,23 @@ import React, { useEffect, useState } from "react";
 import Card from "../Card/Card";
 import { getAnalyzeApi } from "../../api/getAnalyzeApi";
 import { useNavigate } from "react-router-dom";
-import { showLoading, hideLoading } from "../../redux/loader/loader";
-import { useDispatch } from "react-redux";
 import Loader from "../../components/Loader/loader";
 export default function AnalyzeListing() {
   const navigate = useNavigate();
   const [data, setData] = useState({});
-  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        dispatch(showLoading());
         const response = await getAnalyzeApi();
         if (response.status === 400) {
           navigate("/profile");
           return;
         }
-        dispatch(hideLoading());
+
         setData(response.updatedUser.CodingProfiles);
       } catch (error) {
         console.error("Error fetching data:", error);
-        dispatch(hideLoading());
       }
     };
 

@@ -8,7 +8,7 @@ import contestRoute from "./routes/contest.route.js";
 import logger from "./utils/logger.js";
 import morgan from "morgan";
 const app = express();
-const PORT = 5000;
+const PORT = 8080;
 const morganFormat = ":method :url :status :response-time ms ";
 app.use(cors());
 dotenv.config();

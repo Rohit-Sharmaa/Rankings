@@ -13,7 +13,6 @@ import {
   signInFailure,
   signInSuccess,
 } from "../../redux/user/userSlice.js";
-import { showLoading, hideLoading } from "../../redux/loader/loader.js";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -32,7 +31,7 @@ export default function Login() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    dispatch(showLoading());
+
     const validationError = validatePassword(password);
     if (validationError) {
       toast.error(validationError);
@@ -50,7 +49,7 @@ export default function Login() {
       signInSuccess,
       signInFailure
     );
-    dispatch(hideLoading());
+
     if (result) {
       navigate("/");
     }
