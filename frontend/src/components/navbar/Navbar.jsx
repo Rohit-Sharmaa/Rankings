@@ -5,6 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import { MdMenuOpen } from "react-icons/md";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 function Navbar() {
   const navigate = useNavigate();
   const [toggle, setToggle] = useState(false);
@@ -15,6 +16,12 @@ function Navbar() {
 
   const hanleRankingClick = () => {
     navigate("/");
+  };
+
+  const handleLogOutClick = () => {
+    localStorage.removeItem("Ranking-token");
+    navigate("/");
+    toast.success("Successfully logout!");
   };
 
   return (
@@ -73,8 +80,11 @@ function Navbar() {
                   </Link>
                 </li>
               ))}
-               <li>
-                <button className="btn white sm m_nav_login" onClick={handleLoginClick}>
+              <li>
+                <button
+                  className="btn white sm m_nav_login"
+                  onClick={handleLoginClick}
+                >
                   Login
                 </button>
               </li>

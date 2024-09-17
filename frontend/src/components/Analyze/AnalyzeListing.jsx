@@ -18,6 +18,9 @@ export default function AnalyzeListing() {
         if (response.status === 400) {
           navigate("/profile");
           return;
+        } else if (response.status === 401) {
+          navigate("/login");
+          return;
         }
         dispatch(hideLoading());
         setData(response.updatedUser.CodingProfiles);
