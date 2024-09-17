@@ -1,23 +1,26 @@
-import React from "react";
+import { lazy } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Contributer from "./components/contributer/Contributer";
-import Faq from "./components/faq/Faq";
-import Header from "./components/header/Header";
-import HowItWorks from "./components/howItWorks/HowItWorks";
+
 import Navbar from "./components/navbar/Navbar";
-import UpcomingContest from "./components/upcomingContest/UpcomingContest";
-import "./App.css";
-import Login from "./components/login/Login";
-import SignUp from "./components/signup/SignUp";
-import Profile from "./components/Profile/Profile";
-import Analyze from "./components/Analyze/Analyze";
-import ForgetPassword from "./components/forgetPassword/ForgetPassword";
-import Footer from "./components/Footer/Footer";
+import "./App.css"; // Import your CSS file here
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import About from "./components/About/About";
-import { useSelector } from "react-redux";
-import Loader from "./components/Loader/loader";
+
+const Footer = lazy(() => import("./components/Footer/Footer"));
+const Header = lazy(() => import("./components/header/Header"));
+const UpcomingContest = lazy(() =>
+  import("./components/upcomingContest/UpcomingContest")
+);
+const Login = lazy(() => import("./components/login/Login"));
+const SignUp = lazy(() => import("./components/signup/SignUp"));
+const Profile = lazy(() => import("./components/Profile/Profile"));
+const Analyze = lazy(() => import("./components/Analyze/Analyze"));
+const ForgetPassword = lazy(() =>
+  import("./components/forgetPassword/ForgetPassword")
+);
+const Contributer = lazy(() => import("./components/contributer/Contributer"));
+const HowItWorks = lazy(() => import("./components/howItWorks/HowItWorks"));
+const Faq = lazy(() => import("./components/faq/Faq"));
 
 function App() {
   return (
@@ -30,38 +33,32 @@ function App() {
 }
 
 function Layout() {
-  const { loader } = useSelector((state) => state.loader);
   return (
     <>
-      <div>
-        <div>{loader && <Loader />}</div>
-        <Navbar />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Header />
-                <HowItWorks />
-                <Contributer />
-                {/* <Loader /> */}
-                <Faq />
-              </>
-            }
-          />
-          <Route path="/about" element={<About/>}/>
-          <Route path="/contest" element={<UpcomingContest />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/analyze" element={<Analyze />} />
-          <Route path="/contributor" element={<Contributer />} />
-          <Route path="/howitworks" element={<HowItWorks />} />
-          <Route path="/forget" element={<ForgetPassword />} />
-        </Routes>
-        <Footer />
-        <ToastContainer />
-      </div>
+      <Navbar />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Header />
+              <HowItWorks />
+              <Contributer />
+              <Faq />
+            </>
+          }
+        />
+        <Route path="/contest" element={<UpcomingContest />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/analyze" element={<Analyze />} />
+        <Route path="/contributor" element={<Contributer />} />
+        <Route path="/howitworks" element={<HowItWorks />} />
+        <Route path="/forget" element={<ForgetPassword />} />
+      </Routes>
+      <Footer />
+      <ToastContainer />
     </>
   );
 }
