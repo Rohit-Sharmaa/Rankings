@@ -1,3 +1,6 @@
+.upcoming_contest {
+  min-height: 100vh;
+}
 .upcoming_contest_title {
   margin-top: 7rem;
   display: flex;

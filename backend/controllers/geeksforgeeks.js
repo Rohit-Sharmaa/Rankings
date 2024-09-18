@@ -39,13 +39,7 @@ export const geeksforgeeks = async (req, res) => {
     console.log("data----", data);
 
     if (
-      !data.info ||
-      (!data.info.instituteRank && !data.info.questionSolve) ||
-      (!data.info.codingScore &&
-        !data.info.EasySolved &&
-        !data.info.MediumSolved &&
-        !data.info.HardSolved)
-    ) {
+      !data.info  ) {
       return res
         .status(400)
         .json({ message: "Invalid GFG username or no data available" });
