@@ -1,9 +1,8 @@
-import apiClient from "../config/axiosConfig";
 import { toast } from "react-toastify";
+import apiClient from "../config/axiosConfig";
 
-export const getAnalyzeApi = async () => {
+export const refreshUserDataApi = async () => {
   try {
-    console.log("getting request in getAnalyzeapi");
     const token = localStorage.getItem("Ranking-token");
 
     if (!token) {
@@ -11,26 +10,24 @@ export const getAnalyzeApi = async () => {
       return { status: 401, message: "Unauthorized: Please login" };
     }
 
-    const result = await apiClient.get("/api/profiles/getUserProfile", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-
+    toast.success("We are updating your data");
+    const result = await apiClient.post(
+      "/api/profiles/updateProfile",
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
     const data = result.data;
 
     if (result.status === 200) {
-      toast.success("Here is your Coding Profiles details");
-      return data;
+      toast.success("We have updated your profiles");
     } else if (result.status === 400) {
       toast.error(data.message || "Something went wrong");
-      return { status: 400, message: data.message || "Bad Request" };
     } else {
       toast.error(data.message || "Something went wrong");
-      return {
-        status: result.status,
-        message: data.message || "Unknown Error",
-      };
     }
   } catch (error) {
     console.error("Error getting user profile:", error);
@@ -38,6 +35,5 @@ export const getAnalyzeApi = async () => {
       error.response?.data?.message ||
       "Something went wrong while fetching user profile";
     toast.error(errorMessage);
-    return { status: error.response?.status || 500, message: errorMessage };
   }
 };
