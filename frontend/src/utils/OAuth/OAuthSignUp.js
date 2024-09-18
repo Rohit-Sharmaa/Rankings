@@ -13,7 +13,7 @@ export const GoogleSignUpApi = async () => {
     const email = result.user.email;
     console.log(name + " " + email);
     const res = await apiClient.post(
-      "http://localhost:5000/api/auth/googleSignup",
+      "/api/auth/googleSignup",
       {
         name,
         email,

@@ -7,6 +7,7 @@ import codingProfiles from "./routes/codingProfiles.route.js";
 import contestRoute from "./routes/contest.route.js";
 import logger from "./utils/logger.js";
 import morgan from "morgan";
+import "./utils/crons/scheduler.js";
 const app = express();
 const PORT = 8080;
 const morganFormat = ":method :url :status :response-time ms ";

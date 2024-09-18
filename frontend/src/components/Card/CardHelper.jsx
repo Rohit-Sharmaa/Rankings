@@ -33,7 +33,7 @@ export default function CardHelper({
         />
         <img
           src={userAvater || dummylogo}
-          alt="Profile Picture"
+          alt="Profile"
           className="profile-card-avatar"
         />
       </div>
