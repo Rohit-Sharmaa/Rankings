@@ -22,6 +22,7 @@ function Navbar() {
   const handleLogOutClick = () => {
     localStorage.removeItem("Ranking-token");
     navigate("/");
+    window.location.reload();
     toast.success("Successfully logout!");
   };
 
