@@ -1,5 +1,5 @@
 import "./navbar.css";
-import logo from "../../assests/7.jpg";
+import logo from "../../assests/logo_.png";
 import data from "./data.js";
 import { Link, NavLink } from "react-router-dom";
 import { MdMenuOpen } from "react-icons/md";
