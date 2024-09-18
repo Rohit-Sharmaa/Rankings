@@ -8,8 +8,8 @@ import codeforces from "../../assests/codeforces.jpeg";
 import CardHelper from "./CardHelper";
 export default function Card({ profile }) {
   if (!profile.username) return null;
-  console.log("----->", profile);
-  console.log("userAvatar--------", profile.userAvatar);
+  // console.log("----->", profile);
+  // console.log("userAvatar--------", profile.userAvatar);
   // console.log(profile.platform);
   return (
     <div className="profile_container">

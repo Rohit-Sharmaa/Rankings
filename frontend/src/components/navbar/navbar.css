@@ -26,8 +26,10 @@
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
+  object-fit: cover;
   overflow: hidden;
   margin-right: 10px;
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }

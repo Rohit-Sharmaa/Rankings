@@ -21,13 +21,25 @@ export default function Contributer() {
               <h3>{member.Name}</h3>
               <p>{member.Role}</p>
               <div className="contributer_icons">
-                <a href={member.LinkedIn}>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={member.LinkedIn}
+                >
                   <FaLinkedin />
                 </a>
-                <a href={member.Github}>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={member.Github}
+                >
                   <FaGithub />
                 </a>
-                <a href={`mailto:${member.mail}`}>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={`mailto:${member.mail}`}
+                >
                   <FaEnvelope />
                 </a>
               </div>

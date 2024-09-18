@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 
 export const fetchUpcomingContests = async () => {
   try {
-    console.log(process.env.REACT_APP_API_BASE_URL);
+    console.log(process.env.REACT_APP_API_BASE_URL1);
 
     const response = await apiClient.get(`/api/contest/upcoming`);
 
