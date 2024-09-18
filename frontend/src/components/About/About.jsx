@@ -7,11 +7,7 @@ const About = () => {
       <section className="about-section">
         <h1>About Us</h1>
         <p>
-<<<<<<< HEAD
-          Contest started as a hobby project to gather all the contests happening around the internet in one place.
-=======
         We provide an easy and efficient way to track and compare your rankings across various coding platforms.
->>>>>>> origin/dev/testing
         </p>
         <p>
         Our goal is to help developers monitor their progress and stay competitive by offering real-time rank updates from platforms like Codeforces, LeetCode, and more.
