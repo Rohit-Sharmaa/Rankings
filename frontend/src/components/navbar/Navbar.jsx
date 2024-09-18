@@ -20,7 +20,7 @@ function Navbar() {
   };
 
   const handleLogOutClick = () => {
-    localStorage.removeItem("Ranking-token");
+    localStorage.clear();
     navigate("/");
     window.location.reload();
     toast.success("Successfully logout!");
@@ -86,12 +86,21 @@ function Navbar() {
                 </li>
               ))}
               <li>
-                <button
-                  className="btn white sm m_nav_login"
-                  onClick={handleLoginClick}
-                >
-                  Login
-                </button>
+                {user ? (
+                  <button
+                    className="btn white sm m_nav_login"
+                    onClick={handleLogOutClick}
+                  >
+                    Logout
+                  </button>
+                ) : (
+                  <button
+                    className="btn white sm m_nav_login"
+                    onClick={handleLoginClick}
+                  >
+                    Login
+                  </button>
+                )}
               </li>
             </ul>
           </div>

@@ -3,7 +3,7 @@ import Card from "../Card/Card";
 import { getAnalyzeApi } from "../../api/getAnalyzeApi";
 
 import { useNavigate, useLocation } from "react-router-dom";
-import Loader from "../../components/Loader/Loader";
+import Loader from "../Loader/loader";
 
 export default function AnalyzeListing() {
   const navigate = useNavigate();
