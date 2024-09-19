@@ -9,12 +9,19 @@ import { handleSignUpApi, sentOtpApi } from "../../api/handleSignUpApi.js";
 import { resendOtpApi } from "../../api/resendOtp.js";
 import { FcGoogle } from "react-icons/fc";
 import { toast } from "react-toastify";
+import {
+  signInStart,
+  signInFailure,
+  signInSuccess,
+} from "../../redux/user/userSlice.js";
+import { useDispatch } from "react-redux";
 export default function SignUp() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [OTP, setOTP] = useState("");
   const [isOTPRequested, setIsOTPRequested] = useState(false);
+  const dispatch = useDispatch();
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -37,7 +44,15 @@ export default function SignUp() {
         return;
       }
       console.log(email, " ", OTP, " ", password);
-      const result = await handleSignUpApi(email, OTP, password);
+      const result = await handleSignUpApi(
+        email,
+        OTP,
+        password,
+        dispatch,
+        signInStart,
+        signInFailure,
+        signInSuccess
+      );
       if (result) {
         navigate("/");
       }
@@ -56,7 +71,12 @@ export default function SignUp() {
   };
 
   const handleGoogleClick = async () => {
-    const googleLoginResult = await GoogleSignUpApi();
+    const googleLoginResult = await GoogleSignUpApi(
+      dispatch,
+      signInSuccess,
+      signInFailure,
+      signInStart
+    );
     if (googleLoginResult) {
       navigate("/");
     }
