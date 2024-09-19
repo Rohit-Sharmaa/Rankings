@@ -1,6 +1,7 @@
 .contributer_section {
   padding: 2rem 1rem;
   margin-top: 5rem;
+  font-family: merriweather, sans-serif;
 }
 .contributer_title {
   background-color: var(--color-primary);
@@ -61,10 +62,10 @@ h1 {
 }
 
 .contributer_card p {
-  font-weight: 300;
+  font-weight: 400;
   text-transform: uppercase;
   margin: 0.5rem 0 2rem 0;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
 .contributer_icons {

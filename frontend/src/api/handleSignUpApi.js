@@ -1,8 +1,17 @@
 import apiClient from "../config/axiosConfig";
 import { toast } from "react-toastify";
 
-export const handleSignUpApi = async (email, OTP, password) => {
+export const handleSignUpApi = async (
+  email,
+  OTP,
+  password,
+  dispatch,
+  signInStart,
+  signInFailure,
+  signInSuccess
+) => {
   try {
+    dispatch(signInStart());
     if (!email || !password || !OTP) {
       toast.error("Email, password and otp are required");
       return false;
@@ -22,10 +31,12 @@ export const handleSignUpApi = async (email, OTP, password) => {
     if (result.status === 200) {
       console.log("singup api Ranking--token", data.token);
       localStorage.setItem("Ranking-token", data.token);
+      dispatch(signInSuccess(data));
       toast.success("successfully Registered!");
       return true;
     } else {
       toast.error(data.message || "Registration failed");
+      dispatch(signInFailure(data.message));
       return false;
     }
   } catch (error) {
@@ -53,7 +64,7 @@ export const sentOtpApi = async (email) => {
     const data = result.data;
 
     if (result.status === 200) {
-      toast.error("OTP sent to your email");
+      toast.success("OTP sent to your email");
       return true;
     } else {
       toast.error(data.message || "Something went wrong");

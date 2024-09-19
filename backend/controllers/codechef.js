@@ -32,12 +32,13 @@ export const codechef = async (req, res) => {
     }
 
     const codechefData = {
-      username: data.name || codechefUsername,
+      username: codechefUsername,
       rating: data.currentRating,
       maxRating: data.highestRating,
       globalRank: data.globalRank,
       countryRank: data.countryRank,
       stars: data.stars ? data.stars.charAt(0) : 0,
+      userAvatar: data.profile || "",
     };
 
     const updatedUser = await User.findByIdAndUpdate(

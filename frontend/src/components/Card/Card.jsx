@@ -1,28 +1,19 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from "react";
 import "./card.css";
-import background from "../../assests/download.jpeg";
+import gfg from "../../assests/gfg.jpg";
+import codechef from "../../assests/codechef.jpg";
+import leetcode from "../../assests/leetcode.png";
+import codeforces from "../../assests/codeforces.jpeg";
 import CardHelper from "./CardHelper";
-
 export default function Card({ profile }) {
   if (!profile.username) return null;
-  console.log(profile);
-  console.log(profile.platform);
+  // console.log("----->", profile);
+  // console.log("userAvatar--------", profile.userAvatar);
+  // console.log(profile.platform);
   return (
     <div className="profile_container">
       <div className="profile-card">
-        <div className="profile-card-header">
-          <img
-            src={background}
-            alt="Profile Banner"
-            className="profile-card-banner"
-          />
-          <img
-            src={background}
-            alt="Profile Picture"
-            className="profile-card-avatar"
-          />
-        </div>
         {profile.platform === "leetcode" && (
           <CardHelper
             val1={profile.EasySolved}
@@ -36,6 +27,8 @@ export default function Card({ profile }) {
             questionSolved={profile.questionSolved}
             rating={profile.rating}
             globalRanking={profile.globalRanking}
+            userAvater={profile.userAvatar}
+            background={leetcode}
             // attendedContest={profile.attendedContest}
             // streak={profile.streak}
             // totalActiveDays={profile.totalActiveDays}
@@ -55,6 +48,8 @@ export default function Card({ profile }) {
             questionSolved={profile.questionSolved}
             rating={profile.codingScore}
             globalRanking={profile.instituteRank}
+            userAvater={profile.userAvatar}
+            background={gfg}
           />
         )}
 
@@ -71,6 +66,8 @@ export default function Card({ profile }) {
             questionSolved={profile.questionSolved}
             rating={profile.rating}
             maxRank={profile.maxRank}
+            userAvater={profile.userAvatar}
+            background={codeforces}
           />
         )}
 
@@ -87,6 +84,8 @@ export default function Card({ profile }) {
             questionSolved={profile.questionSolved}
             rating={profile.rating}
             globalRanking={profile.globalRank}
+            userAvater={profile.userAvatar}
+            background={codechef}
           />
         )}
       </div>

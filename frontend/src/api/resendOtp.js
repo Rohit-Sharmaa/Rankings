@@ -17,7 +17,7 @@ export const resendOtpApi = async (email) => {
     const data = result.data;
 
     if (result.status === 200) {
-      toast.error("OTP sent to your email");
+      toast.success("OTP sent to your email");
       return true;
     } else {
       toast.error(data.message || "Something went wrong");

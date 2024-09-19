@@ -75,6 +75,10 @@ const UserSchema = new mongoose.Schema(
           type: Number,
           default: 0,
         },
+        userAvatar: {
+          type: String,
+          default: "",
+        },
       },
 
       gfg: {
@@ -105,6 +109,10 @@ const UserSchema = new mongoose.Schema(
         HardSolved: {
           type: Number,
           default: 0,
+        },
+        userAvatar: {
+          type: String,
+          default: "",
         },
       },
 
@@ -140,6 +148,10 @@ const UserSchema = new mongoose.Schema(
           type: Number,
           default: 0,
         },
+        userAvatar: {
+          type: String,
+          default: "",
+        },
       },
 
       codeforces: {
@@ -168,6 +180,11 @@ const UserSchema = new mongoose.Schema(
         questionSolved: {
           type: Number,
           default: 0,
+        },
+
+        userAvatar: {
+          type: String,
+          default: "",
         },
       },
     },

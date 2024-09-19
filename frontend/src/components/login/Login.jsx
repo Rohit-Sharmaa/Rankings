@@ -1,18 +1,25 @@
 import React, { useState } from "react";
-import googlelogo from "../../assests/google.png";
+
 import "./login.css";
-import logo from "../../assests/7.jpg";
+import logo from "../../assests/logo_.png";
 import { Link, useNavigate } from "react-router-dom";
 import { validatePassword } from "../../utils/validatePassword.js";
 import { GoogleLoginkApi } from "../../utils/OAuth/OAuthLogin.js";
 import { handleLoginApi } from "../../api/handleLoginApi.js";
 import { toast } from "react-toastify";
+import { FcGoogle } from "react-icons/fc";
+import { useDispatch } from "react-redux";
+import {
+  signInStart,
+  signInFailure,
+  signInSuccess,
+} from "../../redux/user/userSlice.js";
 
 export default function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const dispatch = useDispatch();
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
     console.log(email);
@@ -25,6 +32,7 @@ export default function Login() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     const validationError = validatePassword(password);
     if (validationError) {
       toast.error(validationError);
@@ -34,7 +42,15 @@ export default function Login() {
     console.log("Email:", email);
     console.log("Password:", password);
 
-    const result = await handleLoginApi(email, password);
+    const result = await handleLoginApi(
+      email,
+      password,
+      dispatch,
+      signInStart,
+      signInSuccess,
+      signInFailure
+    );
+
     if (result) {
       navigate("/");
     }
@@ -45,7 +61,12 @@ export default function Login() {
   };
 
   const handleGoogleClick = async () => {
-    const googleLoginResult = await GoogleLoginkApi();
+    const googleLoginResult = await GoogleLoginkApi(
+      dispatch,
+      signInStart,
+      signInSuccess,
+      signInFailure
+    );
     if (googleLoginResult) {
       navigate("/");
     }
@@ -68,7 +89,7 @@ export default function Login() {
               className="google-btn"
               onClick={handleGoogleClick}
             >
-              <img src={googlelogo} alt="Google" />
+              <FcGoogle alt="google_icon" className="google_icon" />
             </button>
           </div>
           <div className="line-container">

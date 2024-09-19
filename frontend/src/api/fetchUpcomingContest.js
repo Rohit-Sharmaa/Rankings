@@ -3,12 +3,13 @@ import { toast } from "react-toastify";
 
 export const fetchUpcomingContests = async () => {
   try {
-    console.log(process.env.REACT_APP_API_BASE_URL);
+    console.log(process.env.REACT_APP_API_BASE_URL1);
 
     const response = await apiClient.get(`/api/contest/upcoming`);
 
     if (response.status !== 200) {
       toast.error("Something went wrong");
+
       return;
     }
 
@@ -49,6 +50,7 @@ export const fetchUpcomingContests = async () => {
     return adjustedResponse.contestData.objects;
   } catch (error) {
     console.error("Error fetching upcoming contests:", error);
+
     throw error;
   }
 };

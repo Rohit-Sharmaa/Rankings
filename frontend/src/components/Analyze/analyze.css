@@ -1,6 +1,8 @@
 .analyze_container {
   margin-top: 7rem;
   text-align: center;
+  min-height: 100vh;
+  font-family: sans-serif !important;
 }
 .analyze_container h3 {
   display: inline;
@@ -13,4 +15,18 @@
   margin-top: 0.9rem;
   font-size: 1rem;
   opacity: 80%;
+}
+
+.analyze_note {
+  margin-top: 2.5rem;
+  opacity: 80%;
+  background-color: var(--color-light);
+  padding: 1rem;
+}
+.refresh_profile {
+  color: blue;
+}
+.refresh_profile:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }

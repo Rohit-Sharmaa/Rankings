@@ -1,0 +1,44 @@
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .about-section {
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 30px; /* Increased margin for better spacing between sections */
+  }
+  
+  .about-section h1 {
+    margin-top: 4rem;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background-color: hsl(var(--color-primary)); /* Ensure --color-primary is defined */
+    
+  }
+  
+  .about-section h1 span {
+    display: block; /* Ensure span elements take up their own space */
+    margin-bottom: 4rem;
+  }
+  
+  .about-section p {
+    font-size: 1.01rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  @media (max-width: 768px) {
+    .about-section h1 {
+      font-size: 2rem;
+    }
+  
+    .about-section p {
+      font-size: 1rem;
+    }
+  }
+  

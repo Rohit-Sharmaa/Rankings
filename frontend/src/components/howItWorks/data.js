@@ -14,7 +14,7 @@ const data = [
     id: 2,
     logo: FaUser,
     title: "Profile",
-    desc: "After logging in, navigate to the Profile section and add your coding profiles. This allows us to fetch and display your coding data, which is essential for tracking your progress.",
+    desc: "After logging in, navigate to the Profile section and add your coding profiles. This allows us to fetch and display your coding data,tracking your progress.",
   },
 
   {
@@ -26,8 +26,8 @@ const data = [
   {
     id: 4,
     logo: FaCalendarDays,
-    title: "Analyze",
-    desc: "To stay updated with upcoming coding contests, visit the Contests page. This section provides information about upcoming events so you can plan and prepare for them effectively.",
+    title: "Contest",
+    desc: "To stay updated with upcoming coding contests, visit the Contests page. This section provides information about upcoming events.",
   },
 ];
 

@@ -13,7 +13,7 @@ import tophlogo from "../../assests/images.jpeg";
 import hackerearthlogo from "../../assests/hackerearth.jpg";
 import atcoderlogo from "../../assests/atcoder.png";
 import { fetchUpcomingContests } from "../../api/fetchUpcomingContest.js";
-
+import Loader from "../Loader/Loader.jsx";
 const formatDuration = (durationInSeconds) => {
   const hours = Math.floor(durationInSeconds / 3600);
   const minutes = Math.floor((durationInSeconds % 3600) / 60);
@@ -60,6 +60,7 @@ export default function UpcomingContest() {
     const loadContests = async () => {
       try {
         setLoading(true);
+
         const data = await fetchUpcomingContests();
 
         const transformedData = data.map((contest) => ({
@@ -67,11 +68,13 @@ export default function UpcomingContest() {
           startTime: formatDateToIST(contest.start),
           duration: formatDuration(contest.duration),
         }));
+        setLoading(false);
 
         setContests(transformedData);
         setError(null);
       } catch (err) {
         setError("Failed to fetch contests");
+
         setContests([]);
       } finally {
         setLoading(false);
@@ -81,7 +84,7 @@ export default function UpcomingContest() {
     loadContests();
   }, [location]);
 
-  if (loading) return <p>Loading...</p>;
+  // if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
   return (
@@ -105,51 +108,55 @@ export default function UpcomingContest() {
             </tr>
           </thead>
           <tbody className="table_body">
-            {contests.map((entry, index) => (
-              <tr key={index}>
-                <td>
-                  <div className="upcoming_contest_item">
-                    <img
-                      src={logoMap[entry.host] || "default-logo.png"}
-                      alt={entry.host}
-                      className="upcoming_contest_avatar"
-                    />
-                    <div className="upcoming_contest_info">
-                      <p className="upcoming_contest_fw-bold">{entry.host}</p>
+            {loading ? (
+              <Loader />
+            ) : (
+              contests.map((entry, index) => (
+                <tr key={index}>
+                  <td>
+                    <div className="upcoming_contest_item">
+                      <img
+                        src={logoMap[entry.host] || "default-logo.png"}
+                        alt={entry.host}
+                        className="upcoming_contest_avatar"
+                      />
+                      <div className="upcoming_contest_info">
+                        <p className="upcoming_contest_fw-bold">{entry.host}</p>
+                      </div>
                     </div>
-                  </div>
-                </td>
-                <td>
-                  <a
-                    href={entry.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <p className="upcoming_contest_fw-normal contest_event_title">
-                      {entry.event}
-                    </p>
-                  </a>
-                </td>
-                <td className="upcoming_contest_start_duration">
-                  <span>
-                    <BiCalendar />
-                  </span>
-                  &nbsp;
-                  <span className="upcoming_contest_fw-normal">
-                    {entry.startTime}
-                  </span>
-                </td>
-                <td>
-                  <span className="upcoming_contest_duration_icon">
-                    <IoMdTime className="upcoming_contest_duration_time_icon" />
-                    <p>{entry.duration}</p>
-                  </span>
-                </td>
-                <td>
-                  <TbCalendarPlus className="upcoming_contest_calender_icon" />
-                </td>
-              </tr>
-            ))}
+                  </td>
+                  <td>
+                    <a
+                      href={entry.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <p className="upcoming_contest_fw-normal contest_event_title">
+                        {entry.event}
+                      </p>
+                    </a>
+                  </td>
+                  <td className="upcoming_contest_start_duration">
+                    <span>
+                      <BiCalendar />
+                    </span>
+                    &nbsp;
+                    <span className="upcoming_contest_fw-normal">
+                      {entry.startTime}
+                    </span>
+                  </td>
+                  <td>
+                    <span className="upcoming_contest_duration_icon">
+                      <IoMdTime className="upcoming_contest_duration_time_icon" />
+                      <p>{entry.duration}</p>
+                    </span>
+                  </td>
+                  <td>
+                    <TbCalendarPlus className="upcoming_contest_calender_icon" />
+                  </td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>
