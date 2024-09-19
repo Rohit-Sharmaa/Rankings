@@ -5,7 +5,7 @@ const data = [
   {
     id: 1,
     Name: "Rohit Sharma",
-    Role: "Developer",
+    Role: "FullStack Developer",
     img: logo,
     LinkedIn: "https://www.linkedin.com/in/rohit-sharma-b7b762249/",
     Github: "https://github.com/Rohit-Sharmaa",
@@ -14,7 +14,7 @@ const data = [
   {
     id: 2,
     Name: "Sonu Kumar",
-    Role: "Developer",
+    Role: "Frontend Developer",
     img: sonu,
     LinkedIn: "https://www.linkedin.com/in/sonukumar2602/",
     Github: "https://github.com/Sonukumar26",
@@ -23,7 +23,7 @@ const data = [
   {
     id: 3,
     Name: "Akash Ranjan",
-    Role: "Developer",
+    Role: "Frontend Developer",
     img: logo,
     LinkedIn: "https://www.linkedin.com/in/akash-ranjan-28800b202/",
     Github: "https://github.com/Akash-by",
@@ -32,7 +32,7 @@ const data = [
   {
     id: 4,
     Name: "Sahil Gupta",
-    Role: "Developer",
+    Role: "FullStack Developer",
     img: sahil,
     LinkedIn: "https://www.linkedin.com/in/sahilgupta3659/",
     Github: "https://github.com/SG3659",
