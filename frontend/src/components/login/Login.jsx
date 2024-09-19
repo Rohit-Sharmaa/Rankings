@@ -61,7 +61,12 @@ export default function Login() {
   };
 
   const handleGoogleClick = async () => {
-    const googleLoginResult = await GoogleLoginkApi();
+    const googleLoginResult = await GoogleLoginkApi(
+      dispatch,
+      signInStart,
+      signInSuccess,
+      signInFailure
+    );
     if (googleLoginResult) {
       navigate("/");
     }

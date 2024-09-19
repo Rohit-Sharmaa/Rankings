@@ -3,8 +3,14 @@ import { app } from "./firebase.js";
 import apiClient from "../../config/axiosConfig.js";
 import { toast } from "react-toastify";
 
-export const GoogleLoginkApi = async () => {
+export const GoogleLoginkApi = async (
+  dispatch,
+  signInStart,
+  signInSuccess,
+  signInFailure
+) => {
   try {
+    dispatch(signInStart());
     const provider = new GoogleAuthProvider();
     const auth = getAuth(app);
 
@@ -23,10 +29,12 @@ export const GoogleLoginkApi = async () => {
 
     if (res.status === 200) {
       localStorage.setItem("Ranking-token", data.token);
+      dispatch(signInSuccess(data));
       toast.success("Logged in successfully!");
       return true;
     } else {
       toast.error(data.message || "User does not exist or login failed");
+      dispatch(signInFailure(data.message));
       return false;
     }
   } catch (error) {
