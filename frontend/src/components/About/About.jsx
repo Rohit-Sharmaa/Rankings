@@ -7,18 +7,19 @@ const About = () => {
       <section className="about-section">
         <h1>About Us</h1>
         <p>
-        We provide an easy and efficient way to track and compare your rankings across various coding platforms.
+          At our core, we simplify the process of tracking and comparing your coding performance across multiple platforms. Whether it’s Codeforces, LeetCode, or others, we bring your rankings together in one place.
         </p>
         <p>
-        Our goal is to help developers monitor their progress and stay competitive by offering real-time rank updates from platforms like Codeforces, LeetCode, and more.
+          Our mission is to empower developers by providing real-time insights into their competitive coding journey, enabling you to monitor your growth and stay ahead of the competition.
         </p>
         <p>
-        We are committed to understanding your unique requirements and providing tailored solutions.
+          We take the time to understand each user's needs and deliver customized solutions to enhance their experience.
         </p>
         <p>
-        We are a dynamic team of full stack developers, comprising two highly skilled front-end specialists and two expert back-end engineers.
+          Backed by a talented team of full-stack developers, we combine the strengths of our front-end,back-end and full-stack specialists to create seamless, responsive, and powerful applications tailored just for you.
         </p>
       </section>
+
 
       <section className="about-section">
         <h1><span>Why Choose Us ?</span></h1>
@@ -29,8 +30,11 @@ const About = () => {
         We aggregate top coding contests from around the globe, making it easier for you to find and participate in competitive programming events.
         </p>
         <p>
-          So, I started working on it more seriously and after (GOD knows how many) sleepless nights, here we are.
-        </p>
+        We also offer profile synchronization from multiple coding platforms, allowing you to easily compare your coding stats and track your progress across different platforms.
+       </p>
+       <p>
+        Driven by passion and a commitment to excellence, we dedicated ourselves to this vision. After countless hours of hard work and perseverance, we’ve brought it to life, and we're just getting started.
+       </p>
         <p>
         Join us and make your coding journey exciting and rewarding! 
         </p>
