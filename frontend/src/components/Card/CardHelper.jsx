@@ -136,7 +136,7 @@ export default function CardHelper({
           <>
             <div className="profile-card-actions">
               <div>TotalSolved</div>
-              <div>{questionSolved}</div>
+              <div>{"NA"}</div>
             </div>
 
             <div className="profile-card-actions">
