@@ -75,7 +75,7 @@ function Navbar() {
           />
           <div
             onClick={() => setToggle(!toggle)}
-            className={`${!toggle ? "m_nav_hidden " : "m_nav_menu"} `}
+            className={`hamburger_menu ${!toggle ? "m_nav_hidden " : "m_nav_menu"} `}
           >
             <ul className="m_nav_menu_ul">
               {data.map((item) => (
