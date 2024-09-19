@@ -2,6 +2,7 @@
   margin-top: 7rem;
   text-align: center;
   min-height: 100vh;
+  font-family: sans-serif !important;
 }
 .analyze_container h3 {
   display: inline;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./forgetPassword.css";
 
-import logo from "../../assests/7.jpg";
+import logo from "../../assests/logo_.png";
 import { useNavigate } from "react-router-dom";
 import { validatePassword } from "../../utils/validatePassword.js";
 import { GoogleSignUpApi } from "../../utils/OAuth/OAuthSignUp.js";

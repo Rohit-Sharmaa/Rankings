@@ -1,5 +1,6 @@
 import logo from "../../assests/download.jpeg";
-
+import sahil from "../../assests/sahil.jpg";
+import sonu from "../../assests/sonu.jpg";
 const data = [
   {
     id: 1,
@@ -14,7 +15,7 @@ const data = [
     id: 2,
     Name: "Sonu Kumar",
     Role: "Developer",
-    img: logo,
+    img: sonu,
     LinkedIn: "https://www.linkedin.com/in/sonukumar2602/",
     Github: "https://github.com/Sonukumar26",
     mail: "sonukumarroy1000@gmail.com",
@@ -32,7 +33,7 @@ const data = [
     id: 4,
     Name: "Sahil Gupta",
     Role: "Developer",
-    img: logo,
+    img: sahil,
     LinkedIn: "https://www.linkedin.com/in/sahilgupta3659/",
     Github: "https://github.com/SG3659",
     mail: "sahilgupta43384@gmail.com",

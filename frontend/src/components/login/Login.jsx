@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import "./login.css";
-import logo from "../../assests/7.jpg";
+import logo from "../../assests/logo_.png";
 import { Link, useNavigate } from "react-router-dom";
 import { validatePassword } from "../../utils/validatePassword.js";
 import { GoogleLoginkApi } from "../../utils/OAuth/OAuthLogin.js";

@@ -7,6 +7,8 @@
   flex-direction: column;
   margin-top: 4rem;
   background-color: var(--color-light);
+
+  font-family: merriweather, sans-serif;
 }
 .title {
   display: block;

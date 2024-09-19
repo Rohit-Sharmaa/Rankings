@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./signUp.css";
-import logo from "../../assests/7.jpg";
+import logo from "../../assests/logo_.png";
 import { useNavigate } from "react-router-dom";
 import { validatePassword } from "../../utils/validatePassword.js";
 import { GoogleSignUpApi } from "../../utils/OAuth/OAuthSignUp.js";
@@ -8,6 +8,7 @@ import { handleSignUpApi, sentOtpApi } from "../../api/handleSignUpApi.js";
 
 import { resendOtpApi } from "../../api/resendOtp.js";
 import { FcGoogle } from "react-icons/fc";
+import { toast } from "react-toastify";
 export default function SignUp() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -32,7 +33,7 @@ export default function SignUp() {
     if (isOTPRequested) {
       const validationError = validatePassword(password);
       if (validationError) {
-        alert(validationError);
+        toast.error(validationError);
         return;
       }
       console.log(email, " ", OTP, " ", password);
