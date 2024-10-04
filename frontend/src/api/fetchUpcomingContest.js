@@ -6,7 +6,7 @@ export const fetchUpcomingContests = async () => {
     console.log(process.env.REACT_APP_API_BASE_URL1);
 
     const response = await apiClient.get(`/api/contest/upcoming`);
-
+    console.log(response);
     if (response.status !== 200) {
       toast.error("Something went wrong");
 
@@ -24,8 +24,8 @@ export const fetchUpcomingContests = async () => {
       "codeforces.com",
     ];
 
-    const adjustedContestData = contestData.objects
-      .filter((contest) => validHosts.includes(contest.host)) // Filter by valid hosts
+    const adjustedContestData = contestData
+      .filter((contest) => validHosts.includes(contest.host))
       .map((contest) => {
         const startDate = new Date(contest.start);
         startDate.setHours(startDate.getHours() + 5);
@@ -36,7 +36,6 @@ export const fetchUpcomingContests = async () => {
         };
       });
 
-    // Sort contests based on the adjusted start date and time
     adjustedContestData.sort((a, b) => new Date(a.start) - new Date(b.start));
 
     const adjustedResponse = {
