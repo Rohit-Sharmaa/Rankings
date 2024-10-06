@@ -16,17 +16,20 @@ export default function Card({ profile }) {
       <div className="profile-card">
         {profile.platform === "leetcode" && (
           <CardHelper
-            val1={profile.EasySolved}
-            val1name="Easy"
-            val2={profile.MediumSolved}
-            val2name="Medium"
-            val3={profile.HardSolved}
-            val3name="Hard"
+            val1={profile.questionSolved}
+            val1name="Solved"
+            val2={profile.rating}
+            val2name="Rating"
+            val3={profile.globalRanking}
+            val3name="Ranking"
             username={profile.username}
             platform={profile.platform}
-            questionSolved={profile.questionSolved}
-            rating={profile.rating}
-            globalRanking={profile.globalRanking}
+            val4={profile.EasySolved}
+            val4name="Easy"
+            val5={profile.MediumSolved}
+            val5name="Medium"
+            val6={profile.HardSolved}
+            val6name="Hard"
             userAvater={profile.userAvatar}
             background={leetcode}
             // attendedContest={profile.attendedContest}
@@ -37,17 +40,20 @@ export default function Card({ profile }) {
 
         {profile.platform === "gfg" && (
           <CardHelper
-            val1={profile.EasySolved}
-            val1name="Easy"
-            val2={profile.MediumSolved}
-            val2name="Medium"
-            val3={profile.HardSolved}
-            val3name="Hard"
+            val1={profile.questionSolved}
+            val1name="solved"
+            val2={profile.codingScore}
+            val2name="Score"
+            val3={profile.instituteRank}
+            val3name="Rank"
+            val4={profile.EasySolved}
+            val4name="Easy"
+            val5={profile.MediumSolved}
+            val5name="Medium"
+            val6={profile.HardSolved}
+            val6name="Hard"
             username={profile.username}
             platform={profile.platform}
-            questionSolved={profile.questionSolved}
-            rating={profile.codingScore}
-            globalRanking={profile.instituteRank}
             userAvater={profile.userAvatar}
             background={gfg}
           />
@@ -55,12 +61,16 @@ export default function Card({ profile }) {
 
         {profile.platform === "codeforces" && (
           <CardHelper
-            val1={profile.rating}
-            val1name="Rating"
-            val2={profile.rank}
-            val2name="Rank"
-            val3={profile.maxRating}
-            val3name="maxRating"
+            val1={profile.questionSolved}
+            val1name="Solved"
+            val2={profile.rating}
+            val2name="Rating"
+            val3={profile.rank}
+            val3name="Rank"
+            val4={profile.rating}
+            val4name="Rating"
+            val5={profile.maxRating}
+            val5name="maxRating"
             username={profile.username}
             platform={profile.platform}
             questionSolved={profile.questionSolved}
@@ -79,6 +89,10 @@ export default function Card({ profile }) {
             val2name="Stars"
             val3={profile.maxRating}
             val3name="maxRating"
+            val4={profile.rating}
+            val4name="Rating"
+            val5={profile.maxRating}
+            val5name="maxRating"
             username={profile.username}
             platform={profile.platform}
             questionSolved={profile.questionSolved}

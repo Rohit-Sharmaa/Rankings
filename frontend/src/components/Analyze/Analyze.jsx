@@ -29,7 +29,6 @@ export default function Analyze() {
         <li className="refresh_profile" onClick={handleRefreshDataClick}>
           clicking here
         </li>
-        .
       </p>
     </section>
   );

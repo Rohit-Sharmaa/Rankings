@@ -1,3 +1,10 @@
+.analyze_container_upper {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  width: auto;
+  background-color: var(--color-light);
+}
 .profile_container {
   display: flex;
   justify-content: space-around;
@@ -5,33 +12,32 @@
   flex-wrap: wrap;
   margin-left: 3rem;
   margin-right: 3rem;
+  overflow-x: auto;
 }
 
 .profile-card {
-  background-color: var(--color-light);
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+
   margin-top: 2rem;
   flex: 1 1 auto;
-  width: 100%;
-  min-width: 350px;
-  max-width: 500px;
+
   height: auto;
   margin-top: 2rem;
   flex: 1 1 auto;
-  background-color: var(--color-light);
 }
 
 .profile-card-header {
   position: relative;
+  margin-top: 5.8rem;
+  margin-left: 2rem;
 }
 
-.profile-card-banner {
+/* .profile-card-banner {
   width: 100%;
   height: 130px;
   object-fit: cover;
-}
+} */
 
 .profile-card-avatar {
   width: 100px;
@@ -46,6 +52,7 @@
 
 .profile-card-body {
   padding: 20px 20px 5px 20px;
+  margin-left: 2rem;
 }
 
 .profile-card-name {
@@ -64,11 +71,13 @@
 .profile-card-stats {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
+
+  margin-top: 2rem;
 }
 
 .profile-card-stat {
   text-align: center;
+  margin-left: 1rem;
 }
 
 .profile-card-stat-number {
@@ -83,20 +92,10 @@
 }
 
 .profile-card-actions {
-  display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px;
   font-size: 18px;
-}
-
-.profile-card-action-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-weight: bold;
-  color: white;
-  cursor: pointer;
 }
 
 .profile-card-action-button:first-child {
@@ -108,20 +107,16 @@
 }
 
 @media screen and (max-width: 1000px) {
-  .profile-card {
-    min-width: 300px;
-    max-width: 400px;
-  }
   .profile_container {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
+    overflow-x: auto;
   }
 }
 
 @media screen and (max-width: 450px) {
   .analyze_container h3 {
     font-size: 1.5rem;
-
     padding: 8px;
   }
 }

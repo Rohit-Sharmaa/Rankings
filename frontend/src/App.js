@@ -5,6 +5,7 @@ import Navbar from "./components/navbar/Navbar";
 import "./App.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import PieChart from "./components/Charts/PieChart";
 
 const Footer = lazy(() => import("./components/Footer/Footer"));
 const Header = lazy(() => import("./components/header/Header"));
@@ -59,6 +60,7 @@ function Layout() {
         <Route path="/howitworks" element={<HowItWorks />} />
         <Route path="/forget" element={<ForgetPassword />} />
         <Route path="/about" element={<About />} />
+        <Route path="/chart" element={<PieChart />} />
       </Routes>
       <Footer />
 
