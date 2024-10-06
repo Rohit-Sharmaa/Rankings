@@ -50,7 +50,7 @@ const logoMap = {
   "geeksforgeeks.org": geeksforgeekslogo,
 };
 
-// UpcomingContest Component
+
 export default function UpcomingContest() {
   const [contests, setContests] = useState([]);
   const [error, setError] = useState(null);
@@ -65,7 +65,7 @@ export default function UpcomingContest() {
         const transformedData = data.map((contest) => ({
           ...contest,
           startTime: formatDateToIST(contest.start),
-          duration: contest.duration, // Ensure this is in seconds
+          duration: contest.duration, 
         }));
         setContests(transformedData);
         setError(null);

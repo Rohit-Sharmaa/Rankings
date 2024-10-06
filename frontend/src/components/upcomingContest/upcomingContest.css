@@ -136,7 +136,7 @@
 .upcoming_contest_table td:nth-child(5) {
   width: 5%;
 }
-/* Extra large devices (large desktops, 1200px and up) */
+
 @media (max-width: 1200px) {
   .table_container {
     overflow-x: auto;
@@ -144,7 +144,7 @@
     margin: 10px;
   }
   .upcoming_contest_table {
-    width: calc(100% - 6rem); /* 3rem margins on both sides */
+    width: calc(100% - 6rem); 
   }
 
   .upcoming_contest_avatar {
@@ -159,15 +159,15 @@
 }
 
 .upcoming_contest_calender_icon {
-  color: black; /* Default color */
+  color: black; 
   transition: color 0.3s;
 }
 
 .upcoming_contest_calender_icon.clicked {
-  color: black; /* Color when clicked */
+  color: black; 
 }
 
-/* Large devices (992px to 1199px) */
+
 @media (max-width: 992px) {
   .table_container {
     overflow-x: auto;
