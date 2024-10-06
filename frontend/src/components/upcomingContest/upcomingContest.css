@@ -158,6 +158,15 @@
   }
 }
 
+.upcoming_contest_calender_icon {
+  color: black; /* Default color */
+  transition: color 0.3s;
+}
+
+.upcoming_contest_calender_icon.clicked {
+  color: black; /* Color when clicked */
+}
+
 /* Large devices (992px to 1199px) */
 @media (max-width: 992px) {
   .table_container {

@@ -14,6 +14,7 @@ import hackerearthlogo from "../../assests/hackerearth.jpg";
 import atcoderlogo from "../../assests/atcoder.png";
 import { fetchUpcomingContests } from "../../api/fetchUpcomingContest.js";
 import Loader from "../Loder/Loader.jsx";
+
 const formatDuration = (durationInSeconds) => {
   const hours = Math.floor(durationInSeconds / 3600);
   const minutes = Math.floor((durationInSeconds % 3600) / 60);
@@ -60,29 +61,30 @@ export default function UpcomingContest() {
     const loadContests = async () => {
       try {
         setLoading(true);
-
         const data = await fetchUpcomingContests();
-
         const transformedData = data.map((contest) => ({
           ...contest,
           startTime: formatDateToIST(contest.start),
-          duration: formatDuration(contest.duration),
+          duration: contest.duration, // Ensure this is in seconds
         }));
-        setLoading(false);
-
         setContests(transformedData);
         setError(null);
       } catch (err) {
         setError("Failed to fetch contests");
-
         setContests([]);
       } finally {
         setLoading(false);
       }
     };
-
     loadContests();
   }, [location]);
+
+  const generateCalendarLink = (eventTitle, startTime, duration, href, host) => {
+    const startDate = new Date(startTime).toISOString().replace(/-|:|\.\d+/g, "").substring(0, 15) + "Z";
+    const endTime = new Date(new Date(startTime).getTime() + duration * 1000).toISOString().replace(/-|:|\.\d+/g, "").substring(0, 15) + "Z";
+
+    return `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startDate}/${endTime}&details=${encodeURIComponent("Join here: " + href)}&location=${encodeURIComponent(host)}`;
+  };
 
   if (error) return <p>{error}</p>;
 
@@ -95,7 +97,7 @@ export default function UpcomingContest() {
           <span>, &nbsp;so you don't have to!</span>
         </p>
       </div>
-      <div className="table_container ">
+      <div className="table_container">
         <table className="upcoming_contest_table">
           <thead className="upcoming_contest_thead">
             <tr>
@@ -147,11 +149,13 @@ export default function UpcomingContest() {
                   <td>
                     <span className="upcoming_contest_duration_icon">
                       <IoMdTime className="upcoming_contest_duration_time_icon" />
-                      <p>{entry.duration}</p>
+                      <p>{formatDuration(entry.duration)}</p>
                     </span>
                   </td>
                   <td>
-                    <TbCalendarPlus className="upcoming_contest_calender_icon" />
+                    <a href={generateCalendarLink(entry.event, entry.start, entry.duration, entry.href, entry.host)} target="_blank" rel="noopener noreferrer">
+                      <TbCalendarPlus className="upcoming_contest_calender_icon" />
+                    </a>
                   </td>
                 </tr>
               ))
