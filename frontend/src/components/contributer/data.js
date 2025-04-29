@@ -2,24 +2,33 @@ import logo from "../../assests/download.jpeg";
 import sahil from "../../assests/sahil.jpg";
 import sonu from "../../assests/sonu.jpg";
 const data = [
-  {
-    id: 1,
-    Name: "Rohit Sharma",
-    Role: "FullStack Developer",
-    img: logo,
-    LinkedIn: "https://www.linkedin.com/in/rohit-sharma-b7b762249/",
-    Github: "https://github.com/Rohit-Sharmaa",
-    mail: "rj3377294@gmail.com",
-  },
    {
-    id: 2,
-    Name: "Drishti Luthra",
+    id: 1,
+    Name: "Manish Kumar",
     Role: "FullStack Developer",
     img: logo,
-    LinkedIn: "",
-    Github: "",
-    mail: "",
+    LinkedIn: "http://www.linkedin.com/in/manish-sharma-170a95232",
+    Github: "https://github.com/manish24012002",
+    mail: "manishkrsharma336@gmail.com",
   },
+  // {
+  //   id: 1,
+  //   Name: "Rohit Sharma",
+  //   Role: "FullStack Developer",
+  //   img: logo,
+  //   LinkedIn: "https://www.linkedin.com/in/rohit-sharma-b7b762249/",
+  //   Github: "https://github.com/Rohit-Sharmaa",
+  //   mail: "rj3377294@gmail.com",
+  // },
+  //  {
+  //   id: 2,
+  //   Name: "Drishti Luthra",
+  //   Role: "FullStack Developer",
+  //   img: logo,
+  //   LinkedIn: "",
+  //   Github: "",
+  //   mail: "",
+  // },
   // {
   //   id: 2,
   //   Name: "Sonu Kumar",
